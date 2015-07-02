@@ -1,6 +1,7 @@
 'use strict';
 
 describe('Controller: MainCtrl', function () {
+  var scope;
 
   // load the controller's module
   beforeEach(module('musetrapApp'));
@@ -9,7 +10,9 @@ describe('Controller: MainCtrl', function () {
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
+    scope = $rootScope.$new();
     MainCtrl = $controller('MainCtrl', {
+      $scope: scope
       // place here mocked dependencies
     });
   }));
