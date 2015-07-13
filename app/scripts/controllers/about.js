@@ -8,7 +8,7 @@
  * Controller of the musetrapApp
  */
 angular.module('musetrapApp')
-  .controller('AboutCtrl', function () {
+  .controller('AboutCtrl', function() {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
