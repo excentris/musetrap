@@ -8,23 +8,14 @@
  * Factory in the musetrapApp.
  */
 angular.module('musetrapApp')
-  .factory('Data', function() {
+  .factory('Data', ['$http', function($http) {
 
     function getIngredients() {
-      return [{
-        'name': 'Something',
-        'description': 'This is something'
-      }, {
-        'name': 'Something else',
-        'description': 'And this is something else'
-      }, {
-        'name': 'Whatever',
-        'description': 'This is whatever'
-      }];
+      return $http.get('data/ingredients.json');
     }
 
     // Public API here
     return {
       getIngredients: getIngredients
     };
-  });
+  }]);

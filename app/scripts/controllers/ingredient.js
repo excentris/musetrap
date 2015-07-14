@@ -13,7 +13,9 @@ angular.module('musetrapApp')
       $scope.ingredients = [];
 
       $scope.getRecipe = function() {
-        $scope.ingredients = Data.getIngredients();
+        Data.getIngredients().success(function(data) {
+          $scope.ingredients = data;
+        });
       };
     }
   ]);
