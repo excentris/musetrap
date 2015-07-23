@@ -34,7 +34,7 @@ footer ul {
 }
 .label-ingredient {
   display: inline-block;
-  margin-right: 5px;
+  margin-right: 10px;
 }
 .controls-container {
   padding: 5px;
@@ -43,8 +43,12 @@ footer ul {
   padding: 5px;
   font-size: 19px;
 }
+.bundle-toggle {
+  margin-right: 10px;
+}
 
 /* Responsive: Portrait tablets and up */
+
 @media screen and (min-width: 768px) {
   .container {
     max-width: 730px;

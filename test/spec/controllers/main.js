@@ -1,23 +1,22 @@
 'use strict';
 
 describe('Controller: MainCtrl', function() {
-  var scope;
 
   // load the controller's module
   beforeEach(module('musetrapApp'));
 
-  var MainCtrl;
+  var MainCtrl,
+    $scope;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function($controller, $rootScope) {
-    scope = $rootScope.$new();
+    $scope = $rootScope.$new();
     MainCtrl = $controller('MainCtrl', {
-      $scope: scope
-        // place here mocked dependencies
+      $scope: $scope
     });
   }));
 
-  it('should attach a list of awesomeThings to the scope', function() {
-    expect(MainCtrl.awesomeThings.length).toBe(3);
+  it('should initially have no ingredients', function() {
+    expect($scope.ingredients.length).toBe(0);
   });
 });
