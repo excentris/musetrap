@@ -6,7 +6,7 @@
  * @description service dedicated to data retrieval
  */
 angular.module('musetrapApp')
-  .factory('Data', ['$http', function($http) {
+  .factory('Data', ['$http', '$q', function($http, $q) {
 
     /**
      * Retrieves ingredients data for the specified bundleIds
@@ -19,7 +19,7 @@ angular.module('musetrapApp')
         promises.push($http.get('data/' + bundleId + '.json'));
       });
 
-      return promises;
+      return $q.all(promises);
     }
 
     // Public API here

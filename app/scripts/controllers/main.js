@@ -8,8 +8,8 @@
  * Controller of the musetrapApp
  */
 angular.module('musetrapApp')
-  .controller('MainCtrl', ['$scope', '$q', 'Data',
-    function($scope, $q, Data) {
+  .controller('MainCtrl', ['$scope', 'Data',
+    function($scope, Data) {
       $scope.availableBundles = ['animals', 'weapons'];
       $scope.selectedBundles = [];
       $scope.ingredients = [];
@@ -21,7 +21,7 @@ angular.module('musetrapApp')
       $scope.getRecipe = function(selectedBundles) {
         // first get all data for the selected bundles
         var dataPromises = Data.getIngredients(selectedBundles);
-        $q.all(dataPromises).then(function success(retrievedData) {
+        dataPromises.then(function success(retrievedData) {
           var mergedData = [];
           // extract ingredient data from each object in retrievedData, which
           // corresponds to each requested bundle, and merge it
@@ -30,6 +30,11 @@ angular.module('musetrapApp')
           });
 
           $scope.ingredients = mergedData;
+        }, function(errorMsg) {
+          // if any of the previous promises gets rejected
+          // the success callback will never be executed
+          // the error callback will be called...
+          console.log('An error occurred: ', errorMsg);
         });
       };
 
