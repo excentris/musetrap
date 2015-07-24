@@ -23,10 +23,13 @@ angular.module('musetrapApp')
         var dataPromises = Data.getIngredients(selectedBundles);
         dataPromises.then(function success(retrievedData) {
           var mergedData = [];
+
           // extract ingredient data from each object in retrievedData, which
           // corresponds to each requested bundle, and merge it
           angular.forEach(retrievedData, function(bundleData) {
-            mergedData = mergedData.concat(bundleData.data);
+            // sample data to limit the amount of selected ingredients per bundle
+            var sampledData = _.sample(bundleData.data);
+            mergedData = mergedData.concat(sampledData);
           });
 
           $scope.ingredients = mergedData;

@@ -7,14 +7,17 @@ describe('Controller: MainCtrl', function() {
 
   var MainCtrl, $scope, $rootScope, $q, queryDeferred;
   var expectedResponse = [{
-    "name": "Sword"
-  }, {
-    "name": "Axe"
-  }, {
-    "name": "Crossbow"
-  }, {
-    "name": "Pistol"
+    "data": [{
+      "name": "Sword"
+    }, {
+      "name": "Axe"
+    }, {
+      "name": "Crossbow"
+    }, {
+      "name": "Pistol"
+    }]
   }];
+
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function($controller, _$q_, _$rootScope_) {
@@ -32,18 +35,19 @@ describe('Controller: MainCtrl', function() {
     MainCtrl = $controller('MainCtrl', {
       $scope: $scope,
       Data: mockedDataService
-    });}));
+    });
+  }));
 
   it('should initially have no ingredients', function() {
     expect($scope.ingredients.length).toBe(0);
   });
 
-  it('should initially have 4 ingredients', function() {
+  it('should have 1 ingredient after sampling the response on getRecipe', function() {
     $scope.getRecipe();
     // resolve the deferred with a response. 'then' is not yet called.
     queryDeferred.resolve(expectedResponse);
     // propagate promise resolution to 'then'
     $rootScope.$apply();
-    expect($scope.ingredients.length).toBe(4);
+    expect($scope.ingredients.length).toBe(1);
   });
 });
