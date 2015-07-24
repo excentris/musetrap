@@ -18,7 +18,6 @@ describe('Controller: MainCtrl', function() {
     }]
   }];
 
-
   // Initialize the controller and a mock scope
   beforeEach(inject(function($controller, _$q_, _$rootScope_) {
     var mockedDataService = {
