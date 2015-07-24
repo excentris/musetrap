@@ -1,5 +1,5 @@
 <div>
-  <div class="controls-container">
+  <div class="controls-container" ng-controller="ConfigurationCtrl">
     <div class="row">
       <label ng-repeat="bundleId in availableBundles" class="bundle-toggle">
         <input type="checkbox" name="selectedBundles" value="{{bundleId}}" ng-checked="selectedBundles.indexOf(bundleId) > -1" ng-click="toggleBundleSelection(bundleId)"> {{bundleId}}
