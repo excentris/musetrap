@@ -9,7 +9,7 @@
  */
 angular.module('musetrapApp')
   .controller('ConfigurationCtrl', ['$scope', function($scope) {
-    $scope.availableBundles = ['animals', 'weapons'];
+    $scope.availableBundles = ['animals', 'weapons', 'creatures'];
     $scope.selectedBundles = [];
 
     /**
