@@ -428,6 +428,11 @@ module.exports = function (grunt) {
           branch: 'build'
         }
       }
+    },
+
+    // Metadata generation
+    metadata: {
+      src: '<%= yeoman.app %>/data/*'
     }
   });
 
@@ -450,6 +455,22 @@ module.exports = function (grunt) {
   grunt.registerTask('server', 'DEPRECATED TASK. Use the "serve" task instead', function (target) {
     grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
     grunt.task.run(['serve:' + target]);
+  });
+
+  // generate metadata file
+  grunt.registerTask('metadata', 'Generate metadata', function () {
+    var metadata = {};
+
+    // generate the list of available bundles
+    var bundlePaths = grunt.file.expand(grunt.config.get('metadata.src'));
+    metadata.availableBundles = [];
+    bundlePaths.forEach(function (bundlePath) {
+      var bundleNameAndExtension = bundlePath.match(/\/([^/]*)$/)[1];
+      var bundleName = bundleNameAndExtension.substr(0, bundleNameAndExtension.lastIndexOf('.'));
+      metadata.availableBundles.push(bundleName);
+    });
+
+    grunt.file.write('metadata.json', JSON.stringify(metadata, null, '\t'));
   });
 
   grunt.registerTask('test', [
@@ -476,7 +497,8 @@ module.exports = function (grunt) {
     'uglify',
     'filerev',
     'usemin',
-    'htmlmin'
+    'htmlmin',
+    'metadata'
   ]);
 
   grunt.registerTask('default', [

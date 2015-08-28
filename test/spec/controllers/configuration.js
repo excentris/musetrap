@@ -20,8 +20,8 @@ describe('Controller: ConfigurationCtrl', function() {
     expect($scope.selectedBundles.length).toBe(0);
   });
 
-  it('should initially have two modules available', function() {
-    expect($scope.availableBundles.length).toBe(2);
+  it('should initially have three modules available', function() {
+    expect($scope.availableBundles.length).toBe(3);
   });
 
   it('should have 1 selected module after selecting 1 module with an initially empty selection', function() {
