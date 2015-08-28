@@ -5,9 +5,18 @@ describe('Controller: ConfigurationCtrl', function() {
   // load the controller's module
   beforeEach(module('musetrapApp'));
 
-  var ConfigurationCtrl, $scope, $rootScope;
+  var ConfigurationCtrl, $scope, $rootScope, $httpBackend;
   // Initialize the controller
-  beforeEach(inject(function($controller, _$rootScope_) {
+  beforeEach(inject(function(_$httpBackend_, $controller, _$rootScope_) {
+    $httpBackend = _$httpBackend_;
+    $httpBackend.expectGET('metadata.json').respond({
+      "availableBundles": [
+        "animals",
+        "creatures",
+        "plants",
+        "weapons"
+      ]
+    });
     $rootScope = _$rootScope_;
     $scope = $rootScope.$new();
 
@@ -20,8 +29,9 @@ describe('Controller: ConfigurationCtrl', function() {
     expect($scope.selectedBundles.length).toBe(0);
   });
 
-  it('should initially have three modules available', function() {
-    expect($scope.availableBundles.length).toBe(3);
+  it('should initially have four modules available', function() {
+    $httpBackend.flush();
+    expect($scope.availableBundles.length).toBe(4);
   });
 
   it('should have 1 selected module after selecting 1 module with an initially empty selection', function() {

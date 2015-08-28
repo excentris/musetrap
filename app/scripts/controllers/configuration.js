@@ -8,8 +8,17 @@
  * Controller of the musetrapApp
  */
 angular.module('musetrapApp')
-  .controller('ConfigurationCtrl', ['$scope', function($scope) {
-    $scope.availableBundles = ['animals', 'weapons', 'creatures'];
+  .controller('ConfigurationCtrl', ['$scope', 'Data', function($scope, Data) {
+    $scope.availableBundles = [];
+
+    // retrieve available bundles from metadata file
+    var metadataPromise = Data.getMetadata();
+    metadataPromise.then(function success(retrievedData) {
+      $scope.availableBundles = retrievedData.data.availableBundles;
+    }, function(errorMsg) {
+      console.log('An error occurred: ', errorMsg);
+    });
+
     $scope.selectedBundles = [];
 
     /**
