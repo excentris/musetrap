@@ -41,8 +41,8 @@ describe('Controller: MainCtrl', function() {
     expect($scope.ingredients.length).toBe(0);
   });
 
-  it('should have 1 ingredient after sampling the response on getRecipe', function() {
-    $scope.getRecipe();
+  it('should have 1 ingredient after sampling the response on createRecipe', function() {
+    $scope.createRecipe();
     // resolve the deferred with a response. 'then' is not yet called.
     queryDeferred.resolve(expectedResponse);
     // propagate promise resolution to 'then'

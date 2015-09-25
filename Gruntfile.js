@@ -463,14 +463,24 @@ module.exports = function(grunt) {
   grunt.registerTask('metadata', 'Generate metadata', function() {
     var metadata = {};
 
+    var dataPaths = grunt.file.expand(grunt.config.get('metadata.src'));
+
+    var getMetadataArray = function(dataType) {
+      var dataTypePaths = grunt.file.expand(dataPaths[dataPaths.indexOf(dataType)] + "/*");
+      var availableTypes = [];
+      dataTypePaths.forEach(function(dataTypePath) {
+        var dataTypeNameAndExtension = dataTypePath.match(/\/([^/]*)$/)[1];
+        var dataTypeName = dataTypeNameAndExtension.substr(0, dataTypeNameAndExtension.lastIndexOf('.'));
+        availableTypes.push(dataTypeName);
+      });
+
+      return availableTypes;
+    };
+
     // generate the list of available bundles
-    var bundlePaths = grunt.file.expand(grunt.config.get('metadata.src'));
-    metadata.availableBundles = [];
-    bundlePaths.forEach(function(bundlePath) {
-      var bundleNameAndExtension = bundlePath.match(/\/([^/]*)$/)[1];
-      var bundleName = bundleNameAndExtension.substr(0, bundleNameAndExtension.lastIndexOf('.'));
-      metadata.availableBundles.push(bundleName);
-    });
+    metadata.availableBundles = getMetadataArray("app/data/ingredients");
+    // generate the list of available recipes
+    metadata.availableRecipes = getMetadataArray("app/data/recipes");
 
     grunt.file.write(grunt.config.get('yeoman.app') + '/metadata.json', JSON.stringify(metadata, null, '\t'));
   });

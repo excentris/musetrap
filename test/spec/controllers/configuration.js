@@ -6,17 +6,24 @@ describe('Controller: ConfigurationCtrl', function() {
   beforeEach(module('musetrapApp'));
 
   var ConfigurationCtrl, $scope, $rootScope, $httpBackend;
+  var requestHandler;
+
   // Initialize the controller
   beforeEach(inject(function(_$httpBackend_, $controller, _$rootScope_) {
     $httpBackend = _$httpBackend_;
-    $httpBackend.expectGET('metadata.json').respond({
+
+    requestHandler = $httpBackend.expectGET('metadata.json').respond({
       "availableBundles": [
         "animals",
         "creatures",
         "plants",
         "weapons"
+      ],
+      "availableRecipes": [
+        "humanoid_creature"
       ]
     });
+
     $rootScope = _$rootScope_;
     $scope = $rootScope.$new();
 
@@ -24,6 +31,29 @@ describe('Controller: ConfigurationCtrl', function() {
       $scope: $scope
     });
   }));
+
+  it('should initially have one recipe available', function() {
+    $httpBackend.flush();
+    expect($scope.availableRecipes.length).toBe(1);
+  });
+
+  it('should have two bundles selected when selecting humanoid_creature recipe', function() {
+    $scope.selectedRecipe = "humanoid_creature";
+    $scope.changeRecipe();
+    $httpBackend.expectGET('data/recipes/humanoid_creature.json').respond({
+      "description": "A humanoid is something that has an appearance resembling a human being.",
+      "ingredients": ["creatures", "weapons"]
+    });
+    $httpBackend.flush();
+    expect($scope.selectedBundles).toEqual(['creatures', 'weapons']);
+  });
+
+  it('should reset the selectedBundles and selectedRecipeDescription when clearing the recipe selector', function() {
+    $scope.selectedRecipe = "";
+    $scope.changeRecipe();
+    expect($scope.selectedBundles).toEqual([]);
+    expect($scope.selectedRecipeDescription).toEqual("");
+  });
 
   it('should initially have no modules selected', function() {
     expect($scope.selectedBundles.length).toBe(0);

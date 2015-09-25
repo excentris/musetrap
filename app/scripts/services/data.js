@@ -16,10 +16,19 @@ angular.module('musetrapApp')
     function getIngredients(bundleIds) {
       var promises = [];
       angular.forEach(bundleIds, function(bundleId) {
-        promises.push($http.get('data/' + bundleId + '.json'));
+        promises.push($http.get('data/ingredients/' + bundleId + '.json'));
       });
 
       return $q.all(promises);
+    }
+
+    /**
+     * Retrieves a recipe (i.e. the recipe definition)
+     * @param  recipeId the string with the recipe id
+     * @return a promise for the requested recipe
+     */
+    function getRecipe(recipeId) {
+      return $http.get('data/recipes/' + recipeId + '.json');
     }
 
     /**
@@ -33,6 +42,7 @@ angular.module('musetrapApp')
     // Public API here
     return {
       getIngredients: getIngredients,
+      getRecipe: getRecipe,
       getMetadata: getMetadata
     };
   }]);

@@ -10,16 +10,17 @@
 angular.module('musetrapApp')
   .controller('ConfigurationCtrl', ['$scope', 'Data', function($scope, Data) {
     $scope.availableBundles = [];
+    $scope.availableRecipes = [];
+    $scope.selectedBundles = [];
 
     // retrieve available bundles from metadata file
     var metadataPromise = Data.getMetadata();
     metadataPromise.then(function success(retrievedData) {
       $scope.availableBundles = retrievedData.data.availableBundles;
+      $scope.availableRecipes = retrievedData.data.availableRecipes;
     }, function(errorMsg) {
       console.log('An error occurred: ', errorMsg);
     });
-
-    $scope.selectedBundles = [];
 
     /**
      * Toggle selection for a given bundle by its id
@@ -36,6 +37,26 @@ angular.module('musetrapApp')
         else {
           $scope.selectedBundles.push(bundleId);
         }
+      }
+    };
+
+    /**
+     * Changes the recipe by changing the selected bundles based on selectedRecipe.
+     */
+    $scope.changeRecipe = function changeRecipe() {
+      var selectedRecipe = $scope.selectedRecipe;
+      if (selectedRecipe) {
+        var recipePromise = Data.getRecipe(selectedRecipe);
+        recipePromise.then(function success(retrievedData) {
+          $scope.selectedBundles = retrievedData.data.ingredients;
+          $scope.selectedRecipeDescription = retrievedData.data.description;
+        }, function(errorMsg) {
+          console.log('An error occurred: ', errorMsg);
+        });
+      }
+      else {
+        $scope.selectedBundles = [];
+        $scope.selectedRecipeDescription = "";
       }
     };
   }]);

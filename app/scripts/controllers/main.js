@@ -16,7 +16,7 @@ angular.module('musetrapApp')
        * Creates a recipe based on the selected bundles.
        * @param selectedBundles an array with the selected bundle ids
        */
-      $scope.getRecipe = function(selectedBundles) {
+      $scope.createRecipe = function(selectedBundles) {
         // first get all data for the selected bundles
         var dataPromises = Data.getIngredients(selectedBundles);
         dataPromises.then(function success(retrievedData) {
