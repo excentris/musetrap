@@ -1,12 +1,11 @@
 {
-  "availableBundles": [
-    "animals",
-    "creatures",
-    "plants",
-    "weapons"
-  ],
-  "availableRecipes": [
-    "humanoid_creature",
-    "testrecipe"
-  ]
+	"availableBundles": [
+		"animals",
+		"creatures",
+		"plants",
+		"weapons"
+	],
+	"availableRecipes": [
+		"humanoid_creature"
+	]
 }
