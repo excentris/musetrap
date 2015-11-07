@@ -12,9 +12,9 @@
           </small>
         </ui-select-choices>
       </ui-select>
-      <div class="row" ng-show="recipe.selected">
-        <div class="recipe-description">{{recipe.selected.description}}</div>
-      </div>
+    </div>
+    <div class="row" ng-show="recipe.selected">
+      <div class="recipe-description">{{recipe.selected.description}}</div>
     </div>
     <hr>
     <div class="row">
@@ -24,7 +24,7 @@
     </div>
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 inspire-button">
-        <a class="btn btn-lg btn-primary" ng-href="#/" ng-click="createRecipe(selectedBundles)">Hit me!</a>
+        <a class="btn btn-lg btn-primary" ng-href="#/" ng-click="createRecipe(selectedBundles)" ng-show="selectedBundles.length > 0">Hit me!</a>
       </div>
     </div>
   </div>

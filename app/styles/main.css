@@ -43,6 +43,9 @@ footer ul {
   padding: 5px;
   font-size: 19px;
 }
+.recipe-description {
+  margin-top: 20px;
+}
 .bundle-toggle {
   margin-right: 10px;
 }
