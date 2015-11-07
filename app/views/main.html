@@ -1,12 +1,19 @@
 <div>
   <div class="controls-container" ng-controller="ConfigurationCtrl">
     <div class="row">
-      <label for="selectRecipe">Select a recipe:</label>
-      <select name="selectRecipe" class="recipe-select" ng-options="recipe as recipe for recipe in availableRecipes" ng-model="selectedRecipe" ng-change="changeRecipe()">
-        <option value=""></option>
-      </select>
-      <div class="row" ng-show="selectedRecipeDescription">
-        <div class="recipe-description">{{selectedRecipeDescription}}</div>
+      <ui-select ng-model="recipe.selected" theme="bootstrap" ng-disabled="disabled" on-select="changeRecipe($item)">
+        <ui-select-match allow-clear="true" placeholder="Select a recipe...">{{$select.selected.name}}</ui-select-match>
+        <ui-select-choices repeat="recipe in availableRecipes | searchFilter: {name: $select.search, description: $select.search, ingredients: $select.search}">
+          <div ng-bind-html="recipe.name | highlight: $select.search"></div>
+          <small>
+            Description: <span ng-bind-html="''+recipe.description | highlight: $select.search"></span>
+          </br>
+            Ingredients: <span ng-bind-html="''+recipe.ingredients | highlight: $select.search"></span>
+          </small>
+        </ui-select-choices>
+      </ui-select>
+      <div class="row" ng-show="recipe.selected">
+        <div class="recipe-description">{{recipe.selected.description}}</div>
       </div>
     </div>
     <hr>

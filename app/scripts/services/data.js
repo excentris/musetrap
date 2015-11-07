@@ -23,12 +23,11 @@ angular.module('musetrapApp')
     }
 
     /**
-     * Retrieves a recipe (i.e. the recipe definition)
-     * @param  recipeId the string with the recipe id
-     * @return a promise for the requested recipe
+     * Retrieves the recipes file
+     * @return a promise for the recipes
      */
-    function getRecipe(recipeId) {
-      return $http.get('data/recipes/' + recipeId + '.json');
+    function getRecipes() {
+      return $http.get('data/recipes.json');
     }
 
     /**
@@ -42,7 +41,7 @@ angular.module('musetrapApp')
     // Public API here
     return {
       getIngredients: getIngredients,
-      getRecipe: getRecipe,
+      getRecipes: getRecipes,
       getMetadata: getMetadata
     };
   }]);

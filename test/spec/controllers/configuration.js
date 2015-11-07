@@ -6,23 +6,31 @@ describe('Controller: ConfigurationCtrl', function() {
   beforeEach(module('musetrapApp'));
 
   var ConfigurationCtrl, $scope, $rootScope, $httpBackend;
-  var requestHandler;
 
   // Initialize the controller
   beforeEach(inject(function(_$httpBackend_, $controller, _$rootScope_) {
     $httpBackend = _$httpBackend_;
 
-    requestHandler = $httpBackend.expectGET('metadata.json').respond({
+    $httpBackend.when('GET', 'metadata.json').respond({
       "availableBundles": [
         "animals",
         "creatures",
         "plants",
         "weapons"
-      ],
-      "availableRecipes": [
-        "humanoid_creature"
       ]
     });
+
+    $httpBackend.when('GET', 'data/recipes.json').respond(
+      [{
+        "name": "Humanoid creature",
+        "description": "A humanoid is something that has an appearance resembling a human being.",
+        "ingredients": ["creatures", "weapons"]
+      }, {
+        "name": "Creature",
+        "description": "Some kind of creature",
+        "ingredients": ["animals", "plants"]
+      }]
+    );
 
     $rootScope = _$rootScope_;
     $scope = $rootScope.$new();
@@ -34,25 +42,23 @@ describe('Controller: ConfigurationCtrl', function() {
 
   it('should initially have one recipe available', function() {
     $httpBackend.flush();
-    expect($scope.availableRecipes.length).toBe(1);
+    expect($scope.availableRecipes.length).toBe(2);
   });
 
   it('should have two bundles selected when selecting humanoid_creature recipe', function() {
-    $scope.selectedRecipe = "humanoid_creature";
-    $scope.changeRecipe();
-    $httpBackend.expectGET('data/recipes/humanoid_creature.json').respond({
-      "description": "A humanoid is something that has an appearance resembling a human being.",
+    $scope.changeRecipe({
+      "name": "Creature",
+      "description": "Some kind of creature",
       "ingredients": ["creatures", "weapons"]
     });
-    $httpBackend.flush();
     expect($scope.selectedBundles).toEqual(['creatures', 'weapons']);
   });
 
   it('should reset the selectedBundles and selectedRecipeDescription when clearing the recipe selector', function() {
-    $scope.selectedRecipe = "";
+    $scope.selectedRecipe = {};
     $scope.changeRecipe();
     expect($scope.selectedBundles).toEqual([]);
-    expect($scope.selectedRecipeDescription).toEqual("");
+    expect($scope.selectedRecipe).toEqual({});
   });
 
   it('should initially have no modules selected', function() {

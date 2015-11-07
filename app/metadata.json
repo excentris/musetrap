@@ -4,8 +4,5 @@
 		"creatures",
 		"plants",
 		"weapons"
-	],
-	"availableRecipes": [
-		"humanoid_creature"
 	]
 }

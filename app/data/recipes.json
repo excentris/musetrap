@@ -1,0 +1,9 @@
+[{
+  "name": "Humanoid creature",
+  "description": "A humanoid is something that has an appearance resembling a human being.",
+  "ingredients": ["creatures", "weapons"]
+}, {
+  "name": "Creature",
+  "description": "Some kind of creature",
+  "ingredients": ["animals", "plants"]
+}]
