@@ -29,8 +29,9 @@ footer ul {
   padding: 0px;
   list-style-type: none;
 }
-.controls-container .inspire-button {
+.controls-container .inspire-button-container {
   text-align: center;
+  padding: 10px 0px;
 }
 .label-ingredient {
   display: inline-block;
