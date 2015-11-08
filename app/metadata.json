@@ -1,8 +1,10 @@
 {
 	"availableBundles": [
+		"animal_attributes",
 		"animals",
 		"creatures",
 		"plants",
+		"transportation",
 		"weapons"
 	]
 }

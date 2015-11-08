@@ -6,9 +6,11 @@
         <ui-select-choices repeat="recipe in availableRecipes | searchFilter: {name: $select.search, description: $select.search, ingredients: $select.search}">
           <div ng-bind-html="recipe.name | highlight: $select.search"></div>
           <small>
-            Description: <span ng-bind-html="''+recipe.description | highlight: $select.search"></span>
-          </br>
-            Ingredients: <span ng-bind-html="''+recipe.ingredients | highlight: $select.search"></span>
+            Description:
+            <span ng-bind-html="''+recipe.description | highlight: $select.search"></span>
+            </br>
+            Ingredients:
+            <span ng-bind-html="''+recipe.ingredients | highlight: $select.search"></span>
           </small>
         </ui-select-choices>
       </ui-select>
