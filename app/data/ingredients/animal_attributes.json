@@ -1,27 +1,41 @@
-[{
-  "name": "Claws"
-}, {
-  "name": "Fangs"
-}, {
-  "name": "Horns"
-}, {
-  "name": "Scales"
-}, {
-  "name": "Hooves"
-}, {
-  "name": "Tail"
-}, {
-  "name": "Wings"
-}, {
-  "name": "Fur"
-}, {
-  "name": "Tusks"
-}, {
-  "name": "Flippers"
-}, {
-  "name": "Fins"
-}, {
-  "name": "Tentacles"
-}, {
-  "name": "Stinger"
-}]
+[
+	{
+		"name": "Claws"
+	},
+	{
+		"name": "Fangs"
+	},
+	{
+		"name": "Fins"
+	},
+	{
+		"name": "Flippers"
+	},
+	{
+		"name": "Fur"
+	},
+	{
+		"name": "Hooves"
+	},
+	{
+		"name": "Horns"
+	},
+	{
+		"name": "Scales"
+	},
+	{
+		"name": "Stinger"
+	},
+	{
+		"name": "Tail"
+	},
+	{
+		"name": "Tentacles"
+	},
+	{
+		"name": "Tusks"
+	},
+	{
+		"name": "Wings"
+	}
+]

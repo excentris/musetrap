@@ -1,37 +1,56 @@
-[{
-  "name": "Sword"
-}, {
-  "name": "Axe"
-}, {
-  "name": "Crossbow"
-}, {
-  "name": "Pistol"
-}, {
-  "name": "War hammer"
-}, {
-  "name": "Gun"
-}, {
-  "name": "Spear"
-}, {
-  "name": "Bow"
-}, {
-  "name": "Pistol"
-}, {
-  "name": "Flamethrower"
-}, {
-  "name": "Machine gun"
-}, {
-  "name": "Dagger"
-}, {
-  "name": "Rifle"
-}, {
-  "name": "Morning star"
-}, {
-  "name": "Trident"
-}, {
-  "name": "Whip"
-}, {
-  "name": "Shuriken"
-}, {
-  "name": "Trident"
-}]
+[
+	{
+		"name": "Axe"
+	},
+	{
+		"name": "Bow"
+	},
+	{
+		"name": "Crossbow"
+	},
+	{
+		"name": "Dagger"
+	},
+	{
+		"name": "Flamethrower"
+	},
+	{
+		"name": "Gun"
+	},
+	{
+		"name": "Machine gun"
+	},
+	{
+		"name": "Morning star"
+	},
+	{
+		"name": "Pistol"
+	},
+	{
+		"name": "Pistol"
+	},
+	{
+		"name": "Rifle"
+	},
+	{
+		"name": "Shuriken"
+	},
+	{
+		"name": "Spear"
+	},
+	{
+		"name": "Sword"
+	},
+	{
+		"name": "Trident"
+	},
+	{
+		"name": "Trident"
+	},
+	{
+		"name": "War hammer"
+	},
+	{
+		"name": "Whip"
+	}
+]

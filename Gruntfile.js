@@ -460,7 +460,6 @@ module.exports = function(grunt) {
   });
 
   // generate metadata file
-  // TODO revert this to actually generate only ingredient stuff
   grunt.registerTask('metadata', 'Generate metadata', function() {
     var metadata = {};
 
@@ -474,6 +473,24 @@ module.exports = function(grunt) {
     });
 
     grunt.file.write(grunt.config.get('yeoman.app') + '/metadata.json', JSON.stringify(metadata, null, '\t'));
+  });
+
+  // sort ingredient bundles
+  grunt.registerTask('sortIngredients', 'Sort ingredients', function() {
+    // generate the list of available bundles
+    var bundlePaths = grunt.file.expand(grunt.config.get('metadata.src'));
+    bundlePaths.forEach(function(bundlePath) {
+      // read bundle
+      var bundleData = grunt.file.readJSON(bundlePath);
+
+      // sort bundle
+      bundleData = bundleData.sort(function (a, b) {
+        return a.name.localeCompare( b.name );
+      });
+
+      // write bundle
+      grunt.file.write(bundlePath, JSON.stringify(bundleData, null, '\t'));
+    });
   });
 
   grunt.registerTask('test', [
