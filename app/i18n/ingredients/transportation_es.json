@@ -1,0 +1,19 @@
+{
+	"airplane": "Avión",
+	"balloon": "Globo aerostático",
+	"bicycle": "Bicicleta",
+	"boat": "Barca",
+	"bus": "Autobús",
+	"car": "Coche",
+	"helicopter": "Helicóptero",
+	"hovercraft": "Aerodeslizador",
+	"motorcycle": "Motocicleta",
+	"scooter": "Escúter",
+	"ship": "Barco",
+	"spaceship": "Nave espacial",
+	"tank": "Tanque",
+	"tractor": "Tractor",
+	"train": "Tren",
+	"tram": "Tranvía",
+	"zeppelin": "Zepelín"
+}

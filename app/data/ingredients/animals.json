@@ -1,101 +1,35 @@
 [
-	{
-		"name": "Ant"
-	},
-	{
-		"name": "Bat"
-	},
-	{
-		"name": "Bear"
-	},
-	{
-		"name": "Beatle"
-	},
-	{
-		"name": "Bird"
-	},
-	{
-		"name": "Bull"
-	},
-	{
-		"name": "Cat"
-	},
-	{
-		"name": "Cow"
-	},
-	{
-		"name": "Crab"
-	},
-	{
-		"name": "Dog"
-	},
-	{
-		"name": "Dragonfly"
-	},
-	{
-		"name": "Eagle"
-	},
-	{
-		"name": "Elephant"
-	},
-	{
-		"name": "Fly"
-	},
-	{
-		"name": "Frog"
-	},
-	{
-		"name": "Horse"
-	},
-	{
-		"name": "Jellyfish"
-	},
-	{
-		"name": "Lion"
-	},
-	{
-		"name": "Lizard"
-	},
-	{
-		"name": "Monkey"
-	},
-	{
-		"name": "Mouse"
-	},
-	{
-		"name": "Octopus"
-	},
-	{
-		"name": "Owl"
-	},
-	{
-		"name": "Scorpion"
-	},
-	{
-		"name": "Shark"
-	},
-	{
-		"name": "Snake"
-	},
-	{
-		"name": "Spider"
-	},
-	{
-		"name": "Squid"
-	},
-	{
-		"name": "Tiger"
-	},
-	{
-		"name": "Turtle"
-	},
-	{
-		"name": "Whale"
-	},
-	{
-		"name": "Wolf"
-	},
-	{
-		"name": "Worm"
-	}
+	"ant",
+	"bat",
+	"bear",
+	"beatle",
+	"bird",
+	"bull",
+	"cat",
+	"cow",
+	"crab",
+	"dog",
+	"dragonfly",
+	"eagle",
+	"elephant",
+	"fly",
+	"frog",
+	"horse",
+	"jellyfish",
+	"lion",
+	"lizard",
+	"monkey",
+	"mouse",
+	"octopus",
+	"owl",
+	"scorpion",
+	"shark",
+	"snake",
+	"spider",
+	"squid",
+	"tiger",
+	"turtle",
+	"whale",
+	"wolf",
+	"worm"
 ]

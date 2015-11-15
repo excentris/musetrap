@@ -1,0 +1,10 @@
+{
+  "humanoid_creature": {
+    "name": "Humanoid creature",
+    "description": "A humanoid is something that has an appearance resembling a human being."
+  },
+  "animal_warrior": {
+    "name": "Animal warrior",
+    "description": "A warrior with animal traits"
+  }
+}

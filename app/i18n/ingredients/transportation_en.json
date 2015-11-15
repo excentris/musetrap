@@ -1,0 +1,19 @@
+{
+	"airplane": "Airplane",
+	"balloon": "Balloon",
+	"bicycle": "Bicycle",
+	"boat": "Boat",
+	"bus": "Bus",
+	"car": "Car",
+	"helicopter": "Helicopter",
+	"hovercraft": "Hovercraft",
+	"motorcycle": "Motorcycle",
+	"scooter": "Scooter",
+	"ship": "Ship",
+	"spaceship": "Spaceship",
+	"tank": "Tank",
+	"tractor": "Tractor",
+	"train": "Train",
+	"tram": "Tram",
+	"zeppelin": "Zeppelin"
+}

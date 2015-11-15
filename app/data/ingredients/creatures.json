@@ -1,68 +1,24 @@
 [
-	{
-		"name": "Basilisk"
-	},
-	{
-		"name": "Dragon"
-	},
-	{
-		"name": "Dwarf"
-	},
-	{
-		"name": "Elf"
-	},
-	{
-		"name": "Fairy"
-	},
-	{
-		"name": "Ghost"
-	},
-	{
-		"name": "Gnome"
-	},
-	{
-		"name": "Goblin"
-	},
-	{
-		"name": "Griffin"
-	},
-	{
-		"name": "Harpy"
-	},
-	{
-		"name": "Hydra"
-	},
-	{
-		"name": "Kraken"
-	},
-	{
-		"name": "Leviathan"
-	},
-	{
-		"name": "Minotaur"
-	},
-	{
-		"name": "Mummie"
-	},
-	{
-		"name": "Orc"
-	},
-	{
-		"name": "Phoenix"
-	},
-	{
-		"name": "Skeleton"
-	},
-	{
-		"name": "Troll"
-	},
-	{
-		"name": "Vampire"
-	},
-	{
-		"name": "Werewolf"
-	},
-	{
-		"name": "Zombie"
-	}
+	"basilisk",
+	"dragon",
+	"dwarf",
+	"elf",
+	"fairy",
+	"ghost",
+	"gnome",
+	"goblin",
+	"griffin",
+	"harpy",
+	"hydra",
+	"kraken",
+	"leviathan",
+	"minotaur",
+	"mummie",
+	"orc",
+	"phoenix",
+	"skeleton",
+	"troll",
+	"vampire",
+	"werewolf",
+	"zombie"
 ]

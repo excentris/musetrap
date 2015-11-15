@@ -1,92 +1,32 @@
 [
-	{
-		"name": "Bamboo"
-	},
-	{
-		"name": "Birch"
-	},
-	{
-		"name": "Carrot"
-	},
-	{
-		"name": "Cherry (tree)"
-	},
-	{
-		"name": "Daisy"
-	},
-	{
-		"name": "Eucalyptus"
-	},
-	{
-		"name": "Fern"
-	},
-	{
-		"name": "Juniper"
-	},
-	{
-		"name": "Lavender"
-	},
-	{
-		"name": "Maple"
-	},
-	{
-		"name": "Oak"
-	},
-	{
-		"name": "Olive"
-	},
-	{
-		"name": "Onion"
-	},
-	{
-		"name": "Orange"
-	},
-	{
-		"name": "Pea"
-	},
-	{
-		"name": "Peanut"
-	},
-	{
-		"name": "Pear"
-	},
-	{
-		"name": "Pine"
-	},
-	{
-		"name": "Potato"
-	},
-	{
-		"name": "Raspberry"
-	},
-	{
-		"name": "Rice"
-	},
-	{
-		"name": "Strawberry"
-	},
-	{
-		"name": "Sunflower"
-	},
-	{
-		"name": "Tea"
-	},
-	{
-		"name": "Thistle"
-	},
-	{
-		"name": "Tomato"
-	},
-	{
-		"name": "Tulip"
-	},
-	{
-		"name": "Violet"
-	},
-	{
-		"name": "Walnut"
-	},
-	{
-		"name": "Wheat"
-	}
+	"bamboo",
+	"birch",
+	"carrot",
+	"cherry_(tree)",
+	"daisy",
+	"eucalyptus",
+	"fern",
+	"juniper",
+	"lavender",
+	"maple",
+	"oak",
+	"olive",
+	"onion",
+	"orange",
+	"pea",
+	"peanut",
+	"pear",
+	"pine",
+	"potato",
+	"raspberry",
+	"rice",
+	"strawberry",
+	"sunflower",
+	"tea",
+	"thistle",
+	"tomato",
+	"tulip",
+	"violet",
+	"walnut",
+	"wheat"
 ]

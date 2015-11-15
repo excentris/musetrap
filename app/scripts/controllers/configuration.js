@@ -8,11 +8,18 @@
  * Controller of the musetrapApp
  */
 angular.module('musetrapApp')
-  .controller('ConfigurationCtrl', ['$scope', 'Data', function($scope, Data) {
+  .controller('ConfigurationCtrl', ['$scope', 'Data', '$translatePartialLoader', function($scope, Data, $translatePartialLoader) {
     $scope.availableBundles = [];
     $scope.availableRecipes = [];
     $scope.selectedBundles = [];
     $scope.recipe = {};
+
+    $scope.$watchCollection('selectedBundles', function(newValue) {
+      // TODO optimize this
+      newValue.forEach(function(bundle) {
+        $translatePartialLoader.addPart('ingredients/' + bundle);
+      });
+    });
 
     // retrieve available bundles from metadata file
     var metadataPromise = Data.getMetadata();
@@ -53,7 +60,7 @@ angular.module('musetrapApp')
      */
     $scope.changeRecipe = function changeRecipe($selectedRecipe) {
       if ($selectedRecipe) {
-          $scope.selectedBundles = $selectedRecipe.ingredients;
+        $scope.selectedBundles = $selectedRecipe.ingredients;
       }
       else {
         $scope.selectedBundles = [];

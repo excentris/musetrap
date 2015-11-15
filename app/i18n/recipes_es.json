@@ -1,0 +1,10 @@
+{
+  "humanoid_creature": {
+    "name": "Criatura humanoide",
+    "description": "Una criatura humanoide es un ser que tiene aspecto humano."
+  },
+  "animal_warrior": {
+    "name": "Guerrero animal",
+    "description": "Un guerrero con rasgos animales"
+  }
+}

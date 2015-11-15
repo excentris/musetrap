@@ -1,41 +1,14 @@
 [
-	{
-		"name": "Claws"
-	},
-	{
-		"name": "Fangs"
-	},
-	{
-		"name": "Fins"
-	},
-	{
-		"name": "Flippers"
-	},
-	{
-		"name": "Fur"
-	},
-	{
-		"name": "Hooves"
-	},
-	{
-		"name": "Horns"
-	},
-	{
-		"name": "Scales"
-	},
-	{
-		"name": "Stinger"
-	},
-	{
-		"name": "Tail"
-	},
-	{
-		"name": "Tentacles"
-	},
-	{
-		"name": "Tusks"
-	},
-	{
-		"name": "Wings"
-	}
+	"claws",
+	"fangs",
+	"fins",
+	"fur",
+	"hooves",
+	"horns",
+	"scales",
+	"sting",
+	"tail",
+	"tentacles",
+	"tusks",
+	"wings"
 ]

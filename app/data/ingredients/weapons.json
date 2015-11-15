@@ -1,56 +1,19 @@
 [
-	{
-		"name": "Axe"
-	},
-	{
-		"name": "Bow"
-	},
-	{
-		"name": "Crossbow"
-	},
-	{
-		"name": "Dagger"
-	},
-	{
-		"name": "Flamethrower"
-	},
-	{
-		"name": "Gun"
-	},
-	{
-		"name": "Machine gun"
-	},
-	{
-		"name": "Morning star"
-	},
-	{
-		"name": "Pistol"
-	},
-	{
-		"name": "Pistol"
-	},
-	{
-		"name": "Rifle"
-	},
-	{
-		"name": "Shuriken"
-	},
-	{
-		"name": "Spear"
-	},
-	{
-		"name": "Sword"
-	},
-	{
-		"name": "Trident"
-	},
-	{
-		"name": "Trident"
-	},
-	{
-		"name": "War hammer"
-	},
-	{
-		"name": "Whip"
-	}
+	"axe",
+	"bow",
+	"crossbow",
+	"dagger",
+	"flamethrower",
+	"gun",
+	"machine_gun",
+	"morning_star",
+	"pistol",
+	"rifle",
+	"shuriken",
+	"spear",
+	"sword",
+	"trident",
+	"trident",
+	"war_hammer",
+	"whip"
 ]

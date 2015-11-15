@@ -11,6 +11,9 @@ describe('Controller: ConfigurationCtrl', function() {
   beforeEach(inject(function(_$httpBackend_, $controller, _$rootScope_) {
     $httpBackend = _$httpBackend_;
 
+    // swallow i18n calls
+    $httpBackend.when('GET', /i18n/).respond({});
+
     $httpBackend.when('GET', 'metadata.json').respond({
       "availableBundles": [
         "animals",
@@ -22,13 +25,11 @@ describe('Controller: ConfigurationCtrl', function() {
 
     $httpBackend.when('GET', 'data/recipes.json').respond(
       [{
-        "name": "Humanoid creature",
-        "description": "A humanoid is something that has an appearance resembling a human being.",
+        "id": "humanoid_creature",
         "ingredients": ["creatures", "weapons"]
       }, {
-        "name": "Creature",
-        "description": "Some kind of creature",
-        "ingredients": ["animals", "plants"]
+        "id": "animal_warrior",
+        "ingredients": ["animals", "weapons"]
       }]
     );
 

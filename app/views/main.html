@@ -2,15 +2,15 @@
   <div class="controls-container" ng-controller="ConfigurationCtrl">
     <div class="row">
       <ui-select ng-model="recipe.selected" theme="bootstrap" ng-disabled="disabled" on-select="changeRecipe($item)">
-        <ui-select-match allow-clear="true" placeholder="Select a recipe...">{{$select.selected.name}}</ui-select-match>
-        <ui-select-choices repeat="recipe in availableRecipes | searchFilter: {name: $select.search, description: $select.search, ingredients: $select.search}">
-          <div ng-bind-html="recipe.name | highlight: $select.search"></div>
+        <ui-select-match allow-clear="true" placeholder="{{'recipe_selector_placeholder' | translate}}">{{$select.selected.name}}</ui-select-match>
+        <ui-select-choices repeat="recipe in availableRecipes | recipeSearchFilter: $select.search">
+          <div ng-bind-html="recipe.id+'.name' | translate | highlight: $select.search"></div>
           <small>
             Description:
-            <span ng-bind-html="''+recipe.description | highlight: $select.search"></span>
+            <span ng-bind-html="''+recipe.id+'.description' | translate | highlight: $select.search"></span>
             </br>
             Ingredients:
-            <span ng-bind-html="''+recipe.ingredients | highlight: $select.search"></span>
+            <span ng-bind="recipe.ingredients.toString()"></span>
           </small>
         </ui-select-choices>
       </ui-select>
@@ -31,6 +31,6 @@
     </div>
   </div>
   <div class="recipe-container">
-    <span ng-repeat="ingredient in ingredients" class="label label-primary label-ingredient" title="{{ingredient.description}}">{{ingredient.name}}</span>
+    <span ng-repeat="ingredient in ingredients" class="label label-primary label-ingredient" translate>{{ingredient}}</span>
   </div>
 </div>

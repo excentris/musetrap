@@ -34,10 +34,10 @@ module.exports = function(config) {
       'bower_components/angular-ui-select/dist/select.js',
       'bower_components/bootstrap/dist/js/bootstrap.js',
       'bower_components/underscore/underscore.js',
-      'bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js',
       'bower_components/angular-translate-storage-cookie/angular-translate-storage-cookie.js',
       'bower_components/angular-translate-storage-local/angular-translate-storage-local.js',
       'bower_components/angular-translate-handler-log/angular-translate-handler-log.js',
+      'bower_components/angular-translate-loader-partial/angular-translate-loader-partial.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       "app/scripts/**/*.js",

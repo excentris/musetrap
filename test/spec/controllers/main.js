@@ -5,7 +5,7 @@ describe('Controller: MainCtrl', function() {
   // load the controller's module
   beforeEach(module('musetrapApp'));
 
-  var MainCtrl, $scope, $rootScope, $q, queryDeferred;
+  var MainCtrl, $scope, $rootScope, $q, queryDeferred, $httpBackend;
   var expectedResponse = [{
     "data": [{
       "name": "Sword"
@@ -19,7 +19,12 @@ describe('Controller: MainCtrl', function() {
   }];
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function($controller, _$q_, _$rootScope_) {
+  beforeEach(inject(function(_$httpBackend_, $controller, _$q_, _$rootScope_) {
+    $httpBackend = _$httpBackend_;
+
+    // swallow i18n calls
+    $httpBackend.when('GET', /i18n/).respond({});
+
     var mockedDataService = {
       getIngredients: function() {
         queryDeferred = $q.defer();

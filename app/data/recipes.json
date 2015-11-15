@@ -1,9 +1,7 @@
 [{
-  "name": "Humanoid creature",
-  "description": "A humanoid is something that has an appearance resembling a human being.",
+  "id": "humanoid_creature",
   "ingredients": ["creatures", "weapons"]
 }, {
-  "name": "Creature",
-  "description": "Some kind of creature",
-  "ingredients": ["animals", "plants"]
+  "id": "animal_warrior",
+  "ingredients": ["animals", "weapons"]
 }]
