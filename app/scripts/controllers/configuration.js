@@ -17,7 +17,7 @@ angular.module('musetrapApp')
     $scope.$watchCollection('selectedBundles', function(newValue) {
       // TODO optimize this
       newValue.forEach(function(bundle) {
-        $translatePartialLoader.addPart('ingredients/' + bundle);
+        $translatePartialLoader.addPart('ingredient_bundles/' + bundle);
       });
     });
 
@@ -60,7 +60,7 @@ angular.module('musetrapApp')
      */
     $scope.changeRecipe = function changeRecipe($selectedRecipe) {
       if ($selectedRecipe) {
-        $scope.selectedBundles = $selectedRecipe.ingredients;
+        $scope.selectedBundles = $selectedRecipe.ingredient_bundles;
       }
       else {
         $scope.selectedBundles = [];

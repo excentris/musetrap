@@ -9,8 +9,8 @@
             <span translate>recipe_description_label</span>:
             <span ng-bind-html="''+recipe.id+'.description' | translate | highlight: $select.search"></span>
             </br>
-            <span translate>recipe_ingredients_label</span>:
-            <span ng-bind="recipe.ingredients.toString()"></span>
+            <span translate>recipe_ingredient_bundles_label</span>:
+            <span ng-bind="recipe.ingredient_bundles.toString()"></span>
           </small>
         </ui-select-choices>
       </ui-select>
@@ -31,6 +31,6 @@
     </div>
   </div>
   <div class="recipe-container">
-    <span ng-repeat="ingredient in ingredients" class="label label-primary label-ingredient" translate>{{ingredient}}</span>
+    <span ng-repeat="ingredient_bundle in ingredient_bundles" class="label label-primary label-ingredient_bundle" translate>{{ingredient_bundle}}</span>
   </div>
 </div>

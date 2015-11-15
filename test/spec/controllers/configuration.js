@@ -26,10 +26,10 @@ describe('Controller: ConfigurationCtrl', function() {
     $httpBackend.when('GET', 'data/recipes.json').respond(
       [{
         "id": "humanoid_creature",
-        "ingredients": ["creatures", "weapons"]
+        "ingredient_bundles": ["creatures", "weapons"]
       }, {
         "id": "animal_warrior",
-        "ingredients": ["animals", "weapons"]
+        "ingredient_bundles": ["animals", "weapons"]
       }]
     );
 
@@ -50,7 +50,7 @@ describe('Controller: ConfigurationCtrl', function() {
     $scope.changeRecipe({
       "name": "Creature",
       "description": "Some kind of creature",
-      "ingredients": ["creatures", "weapons"]
+      "ingredient_bundles": ["creatures", "weapons"]
     });
     expect($scope.selectedBundles).toEqual(['creatures', 'weapons']);
   });

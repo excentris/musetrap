@@ -434,14 +434,14 @@ module.exports = function(grunt) {
 
     // Metadata generation
     metadata: {
-      src: '<%= yeoman.app %>/data/ingredients/*'
+      src: '<%= yeoman.app %>/data/ingredient_bundles/*'
     },
 
     // i18n related configuration
     i18n: {
       locales: ["en", "es"],
-      ingredients: {
-        dest: '<%= yeoman.app %>/i18n/ingredients/'
+      ingredient_bundles: {
+        dest: '<%= yeoman.app %>/i18n/ingredient_bundles/'
       }
     }
   });
@@ -483,8 +483,8 @@ module.exports = function(grunt) {
     grunt.file.write(grunt.config.get('yeoman.app') + '/metadata.json', JSON.stringify(metadata, null, '\t'));
   });
 
-  // create ingredient translation files
-  grunt.registerTask('createTranslationFiles', 'Create ingredient translation files', function() {
+  // create ingredient_bundle translation files
+  grunt.registerTask('createTranslationFiles', 'Create ingredient_bundle translation files', function() {
     // generate the list of available bundles
     var bundlePaths = grunt.file.expand(grunt.config.get('metadata.src'));
     bundlePaths.forEach(function(bundlePath) {
@@ -501,7 +501,7 @@ module.exports = function(grunt) {
       });
 
       // write bundle
-      var destPath = grunt.config.get('i18n.ingredients.dest');
+      var destPath = grunt.config.get('i18n.ingredient_bundles.dest');
       var locales = grunt.config.get('i18n.locales');
       locales.forEach(function(locale) {
         var bundleTranslationSkeletonPath = destPath + bundleName + "_" + locale + ".json";

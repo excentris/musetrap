@@ -11,10 +11,10 @@ describe('Filter: recipeSearchFilter', function() {
     $scope = $rootScope.$new();
     $scope.availableRecipes = [{
       "id": "humanoid_creature",
-      "ingredients": ["creatures", "weapons"]
+      "ingredient_bundles": ["creatures", "weapons"]
     }, {
       "id": "animal_warrior",
-      "ingredients": ["animals", "weapons"]
+      "ingredient_bundles": ["animals", "weapons"]
     }];
     recipeSearchFilter = $filter('recipeSearchFilter');
   }));
