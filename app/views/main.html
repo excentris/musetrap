@@ -21,7 +21,7 @@
     <hr>
     <div class="row">
       <label ng-repeat="bundleId in availableBundles" class="bundle-toggle">
-        <input type="checkbox" name="selectedBundles" value="{{bundleId}}" ng-checked="selectedBundles.indexOf(bundleId) > -1" ng-click="toggleBundleSelection(bundleId)"> {{bundleId}}
+        <input type="checkbox" name="selectedBundles" value="{{bundleId}}" ng-checked="selectedBundles.indexOf(bundleId) > -1" ng-click="toggleBundleSelection(bundleId)"> {{bundleId | translate}}
       </label>
     </div>
     <div class="row">

@@ -36,6 +36,7 @@ angular
   }).config(function($translateProvider, $translatePartialLoaderProvider) {
     $translatePartialLoaderProvider.addPart('app/ui');
     $translatePartialLoaderProvider.addPart('recipes');
+    $translatePartialLoaderProvider.addPart('ingredient_bundles');
     $translateProvider.useLoader('$translatePartialLoader', {
       urlTemplate: 'i18n/{part}_{lang}.json'
     });

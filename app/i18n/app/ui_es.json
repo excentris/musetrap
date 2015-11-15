@@ -4,5 +4,7 @@
   "tagline": "Algo",
   "recipe_selector_placeholder": "Selecciona una receta...",
   "recipe_description_label": "Descripción",
-  "recipe_ingredient_bundles_label": "Ingredientes"
+  "recipe_ingredient_bundles_label": "Ingredientes",
+  "nav_home": "Inicio",
+  "nav_about": "Acerca de Musetrap"
 }

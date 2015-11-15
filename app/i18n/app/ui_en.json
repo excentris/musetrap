@@ -4,5 +4,7 @@
   "tagline": "Something",
   "recipe_selector_placeholder": "Select a recipe...",
   "recipe_description_label": "Description",
-  "recipe_ingredient_bundles_label": "Ingredients"
+  "recipe_ingredient_bundles_label": "Ingredients",
+  "nav_home": "Home",
+  "nav_about": "About"
 }
