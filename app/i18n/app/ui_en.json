@@ -2,5 +2,7 @@
   "button_lang_es": "Spanish",
   "button_lang_en": "English",
   "tagline": "Something",
-  "recipe_selector_placeholder": "Select a recipe..."
+  "recipe_selector_placeholder": "Select a recipe...",
+  "recipe_description_label": "Description",
+  "recipe_ingredients_label": "Ingredients"
 }

@@ -6,17 +6,17 @@
         <ui-select-choices repeat="recipe in availableRecipes | recipeSearchFilter: $select.search">
           <div ng-bind-html="recipe.id+'.name' | translate | highlight: $select.search"></div>
           <small>
-            Description:
+            <span translate>recipe_description_label</span>:
             <span ng-bind-html="''+recipe.id+'.description' | translate | highlight: $select.search"></span>
             </br>
-            Ingredients:
+            <span>recipe_ingredients_label</span>:
             <span ng-bind="recipe.ingredients.toString()"></span>
           </small>
         </ui-select-choices>
       </ui-select>
     </div>
     <div class="row" ng-show="recipe.selected">
-      <div class="recipe-description">{{recipe.selected.description}}</div>
+      <div class="recipe-description">{{recipe.selected.id+'.description' | translate}}</div>
     </div>
     <hr>
     <div class="row">
