@@ -40,13 +40,13 @@
           <div class="col-lg-8">
             <div class="btn-group" role="group">
               <ul class="nav nav-pills">
-                <li role="presentation" class="active"><a href="#/" translate>nav_home</a></li>
-                <li role="presentation"><a ng-href="#/about" translate>nav_about</a></li>
+                <li role="presentation" ng-class="{ active: isActiveLocation('/') }"><a href="#/" translate>nav_home</a></li>
+                <li role="presentation" ng-class="{ active: isActiveLocation('/about') }"><a ng-href="#/about" translate>nav_about</a></li>
               </ul>
             </div>
             <div class="btn-group" role="group" aria-label="...">
-              <button type="button" class="btn btn-default" ng-click="changeLanguage('en')" translate="button_lang_en"></button>
-              <button type="button" class="btn btn-default" ng-click="changeLanguage('es')" translate="button_lang_es"></button>
+              <button type="button" class="btn btn-default" ng-class="{ active: isActiveLanguage('en') }" ng-click="changeLanguage('en')" translate="button_lang_en"></button>
+              <button type="button" class="btn btn-default" ng-class="{ active: isActiveLanguage('es') }" ng-click="changeLanguage('es')" translate="button_lang_es"></button>
             </div>
           </div>
         </div>
