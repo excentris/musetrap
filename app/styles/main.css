@@ -50,6 +50,15 @@ footer ul {
 .bundle-toggle {
   margin-right: 10px;
 }
+.language-select {
+  min-width: 140px;
+}
+
+/* fix for select choices positioning */
+.btn-group .ui-select-choices {
+  top: auto;
+  bottom: 100%;
+}
 
 /* Responsive: Portrait tablets and up */
 

@@ -40,7 +40,7 @@ angular
     $translateProvider.useLoader('$translatePartialLoader', {
       urlTemplate: 'i18n/{part}_{lang}.json'
     });
-    $translateProvider.useSanitizeValueStrategy('sanitize');
+    $translateProvider.useSanitizeValueStrategy('sanitizeParameters');
     $translateProvider.preferredLanguage('en');
   }).run(function($rootScope, $translate) {
     $rootScope.$on('$translatePartialLoaderStructureChanged', function() {

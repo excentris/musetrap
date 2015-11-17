@@ -480,6 +480,9 @@ module.exports = function(grunt) {
       metadata.availableBundles.push(bundleName);
     });
 
+    // add locale related stuff
+    metadata.availableLanguages = grunt.config.get('i18n.locales');
+
     grunt.file.write(grunt.config.get('yeoman.app') + '/metadata.json', JSON.stringify(metadata, null, '\t'));
   });
 

@@ -34,8 +34,12 @@ angular.module('musetrapApp')
      * Retrieves metadata info file
      * @return a promise for the metadata
      */
+    var metadataPromise;
     function getMetadata() {
-      return $http.get('metadata.json');
+      if (!metadataPromise) {
+        metadataPromise = $http.get('metadata.json');
+      }
+      return metadataPromise;
     }
 
     // Public API here

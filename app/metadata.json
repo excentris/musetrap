@@ -6,5 +6,9 @@
 		"plants",
 		"transportation",
 		"weapons"
+	],
+	"availableLanguages": [
+		"en",
+		"es"
 	]
 }

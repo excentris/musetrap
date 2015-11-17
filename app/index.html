@@ -44,9 +44,13 @@
                 <li role="presentation" ng-class="{ active: isActiveLocation('/about') }"><a ng-href="#/about" translate>nav_about</a></li>
               </ul>
             </div>
-            <div class="btn-group" role="group" aria-label="...">
-              <button type="button" class="btn btn-default" ng-class="{ active: isActiveLanguage('en') }" ng-click="changeLanguage('en')" translate="button_lang_en"></button>
-              <button type="button" class="btn btn-default" ng-class="{ active: isActiveLanguage('es') }" ng-click="changeLanguage('es')" translate="button_lang_es"></button>
+            <div class="btn-group" role="group">
+              <ui-select class="language-select" ng-model="selectedLanguage" theme="bootstrap" on-select="changeLanguage($item)">
+                <ui-select-match placeholder="Select language">{{ 'button_lang_'+$select.selected | translate }}</ui-select-match>
+                <ui-select-choices repeat="language in availableLanguages | filter: $select.search" position="up">
+                  <span ng-bind-html="'button_lang_'+language | translate | highlight: $select.search"></span>
+                </ui-select-choices>
+              </ui-select>
             </div>
           </div>
         </div>

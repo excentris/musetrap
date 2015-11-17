@@ -8,23 +8,24 @@
  * Controller of the musetrapApp
  */
 angular.module('musetrapApp')
-  .controller('FooterCtrl', ['$scope', '$translate', '$location',
-    function($scope, $translate, $location) {
+  .controller('FooterCtrl', ['$scope', '$translate', '$location', 'Data',
+    function($scope, $translate, $location, Data) {
+      $scope.availableLanguages = [];
+      $scope.selectedLanguage = 'en';
+      // retrieve available languages from metadata file
+      var metadataPromise = Data.getMetadata();
+      metadataPromise.then(function success(retrievedData) {
+        $scope.availableLanguages = retrievedData.data.availableLanguages;
+      }, function(errorMsg) {
+        console.log('An error occurred: ', errorMsg);
+      });
+
       /**
        * Change the application language.
        * @param langKey e.g. 'en', 'es'
        */
       $scope.changeLanguage = function(langKey) {
         $translate.use(langKey);
-      };
-
-      /**
-       * Check if the specified langKey corresponds to the active language.
-       * @param  String langKey the key of the language to check if it is active.
-       * @return true if the specified langKey corresponds to the active language.
-       */
-      $scope.isActiveLanguage = function(langKey) {
-        return langKey === $translate.use();
       };
 
       /**
