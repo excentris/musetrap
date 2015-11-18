@@ -11,7 +11,13 @@ angular.module('musetrapApp')
   .controller('FooterCtrl', ['$scope', '$translate', '$location', 'Data',
     function($scope, $translate, $location, Data) {
       $scope.availableLanguages = [];
-      $scope.selectedLanguage = 'en';
+      $scope.selectedLanguage = undefined;
+
+      var translateReadyPromise = $translate.onReady();
+      translateReadyPromise.then(function() {
+        $scope.selectedLanguage = $translate.use();
+      });
+
       // retrieve available languages from metadata file
       var metadataPromise = Data.getMetadata();
       metadataPromise.then(function success(retrievedData) {
@@ -25,6 +31,7 @@ angular.module('musetrapApp')
        * @param langKey e.g. 'en', 'es'
        */
       $scope.changeLanguage = function(langKey) {
+        $scope.selectedLanguage = langKey;
         $translate.use(langKey);
       };
 

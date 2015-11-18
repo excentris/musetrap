@@ -16,10 +16,16 @@ describe('Controller: ConfigurationCtrl', function() {
 
     $httpBackend.when('GET', 'metadata.json').respond({
       "availableBundles": [
+        "animal_traits",
         "animals",
         "creatures",
         "plants",
+        "transportation",
         "weapons"
+      ],
+      "availableLanguages": [
+        "en",
+        "es"
       ]
     });
 
@@ -41,7 +47,7 @@ describe('Controller: ConfigurationCtrl', function() {
     });
   }));
 
-  it('should initially have one recipe available', function() {
+  it('should initially have two recipes available', function() {
     $httpBackend.flush();
     expect($scope.availableRecipes.length).toBe(2);
   });
@@ -66,9 +72,9 @@ describe('Controller: ConfigurationCtrl', function() {
     expect($scope.selectedBundles.length).toBe(0);
   });
 
-  it('should initially have four modules available', function() {
+  it('should initially have six modules available', function() {
     $httpBackend.flush();
-    expect($scope.availableBundles.length).toBe(4);
+    expect($scope.availableBundles.length).toBe(6);
   });
 
   it('should have 1 selected module after selecting 1 module with an initially empty selection', function() {
