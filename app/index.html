@@ -40,8 +40,12 @@
           <div class="col-lg-8">
             <div class="btn-group" role="group">
               <ul class="nav nav-pills">
-                <li role="presentation" ng-class="{ active: isActiveLocation('/') }"><a href="#/" translate>nav_home</a></li>
-                <li role="presentation" ng-class="{ active: isActiveLocation('/about') }"><a ng-href="#/about" translate>nav_about</a></li>
+                <li role="presentation" ng-class="{'active': '/' == location.active}">
+                  <a ng-href="#/" translate>nav_home</a>
+                </li>
+                <li role="presentation" ng-class="{'active': '/about' == location.active}">
+                  <a ng-href="#/about" translate>nav_about</a>
+                </li>
               </ul>
             </div>
             <div class="btn-group" role="group">

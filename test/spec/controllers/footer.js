@@ -51,4 +51,10 @@ describe('Controller: FooterCtrl', function() {
     $scope.changeLanguage('es');
     expect($scope.selectedLanguage).toEqual('es');
   });
+
+  it('should have "/" as initial location', function() {
+    $scope.$on('$locationChangeSuccess', function() {
+      expect($scope.location.active).toEqual('/');
+    });
+  });
 });

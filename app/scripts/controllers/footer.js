@@ -10,6 +10,13 @@
 angular.module('musetrapApp')
   .controller('FooterCtrl', ['$scope', '$translate', '$location', 'Data',
     function($scope, $translate, $location, Data) {
+      $scope.location = {
+        active: ""
+      };
+      $scope.$on('$locationChangeSuccess', function() {
+        $scope.location.active = $location.path();
+      });
+
       $scope.availableLanguages = [];
       $scope.selectedLanguage = undefined;
 
@@ -33,15 +40,6 @@ angular.module('musetrapApp')
       $scope.changeLanguage = function(langKey) {
         $scope.selectedLanguage = langKey;
         $translate.use(langKey);
-      };
-
-      /**
-       * Check if the specified location is active.
-       * @param  String viewLocation the location check
-       * @return true if the specified location is active, false otherwise
-       */
-      $scope.isActiveLocation = function(viewLocation) {
-        return viewLocation === $location.path();
       };
     }
   ]);
