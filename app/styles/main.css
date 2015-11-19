@@ -55,7 +55,7 @@ footer ul {
 }
 
 /* fix for select choices positioning */
-.btn-group .ui-select-choices {
+.language-select-container .ui-select-choices {
   top: auto;
   bottom: 100%;
 }

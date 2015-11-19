@@ -49,7 +49,7 @@
                   </li>
                 </ul>
               </div>
-              <div class="nav navbar-right" role="group">
+              <div class="language-select-container navbar-right" role="group">
                 <ui-select class="language-select" ng-model="selectedLanguage" theme="bootstrap" on-select="changeLanguage($item)">
                   <ui-select-match placeholder="Select language">{{ 'button_lang_'+$select.selected | translate }}</ui-select-match>
                   <ui-select-choices repeat="language in availableLanguages | filter: $select.search" position="up">
