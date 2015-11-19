@@ -2,7 +2,7 @@
   <div class="controls-container" ng-controller="ConfigurationCtrl">
     <div class="row">
       <div class="input-group">
-        <ui-select ng-model="recipe.selected" theme="bootstrap" ng-disabled="disabled" on-select="changeRecipe($item)">
+        <ui-select class="recipe-select" ng-model="recipe.selected" theme="bootstrap" ng-disabled="disabled" on-select="changeRecipe($item)">
           <ui-select-match allow-clear="true" placeholder="{{'recipe_selector_placeholder' | translate}}">{{$select.selected.id+'.name' | translate}}</ui-select-match>
           <ui-select-choices repeat="recipe in availableRecipes | recipeSearchFilter: $select.search">
             <div ng-bind-html="recipe.id+'.name' | translate | highlight: $select.search"></div>

@@ -29,7 +29,6 @@ footer ul {
   padding: 0px;
   list-style-type: none;
 }
-
 .controls-container .inspire-button-container {
   text-align: center;
   padding: 10px 0px;
@@ -54,8 +53,13 @@ footer ul {
 .language-select {
   width: 160px;
 }
+.input-group .recipe-select .ui-select-toggle {
+  border-bottom-left-radius: 4px;
+  border-top-left-radius: 4px;
+}
 
 /* fix for select choices positioning */
+
 .language-select-container .ui-select-choices {
   top: auto;
   bottom: 100%;
