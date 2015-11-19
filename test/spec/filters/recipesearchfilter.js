@@ -23,4 +23,7 @@ describe('Filter: recipeSearchFilter', function() {
     expect(recipeSearchFilter($scope.availableRecipes, 'humanoid')[0].id).toBe('humanoid_creature');
   });
 
+  it('searching for "xyz" should return an empty array', function() {
+    expect(recipeSearchFilter($scope.availableRecipes, 'xyz').length).toBe(0);
+  });
 });

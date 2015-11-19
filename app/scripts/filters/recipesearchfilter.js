@@ -5,8 +5,8 @@
  * @name musetrapApp.filter:searchFilter
  * @function
  * @description
- * # searchFilter
- * Filter in the musetrapApp.
+ * Filter that matches recipes against a string by searching both in name and
+ * description.
  */
 angular.module('musetrapApp')
   .filter('recipeSearchFilter', ['$translate', function($translate) {
@@ -30,10 +30,6 @@ angular.module('musetrapApp')
             out.push(recipe);
           }
         });
-      }
-      else {
-        // Let the output be the input untouched
-        out = recipes;
       }
 
       return out;
