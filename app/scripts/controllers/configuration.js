@@ -10,6 +10,7 @@
 angular.module('musetrapApp')
   .controller('ConfigurationCtrl', ['$scope', 'Data', '$translatePartialLoader',
     function($scope, Data, $translatePartialLoader) {
+      $scope.mode = 'normal';
       $scope.availableBundles = [];
       $scope.availableRecipes = [];
       $scope.selectedBundles = [];
@@ -66,6 +67,20 @@ angular.module('musetrapApp')
         else {
           $scope.selectedBundles = [];
           $scope.recipe = {};
+        }
+      };
+
+      /**
+       * Toggle recipe creation mode between normal or tweak. Normal mode simply
+       * shows the createRecipe button after selecting arecipe. Tweak mode shows
+       * the different bundle checkboxes as well to further tweak the recipe.
+       */
+      $scope.toggleMode = function toggleMode() {
+        if ($scope.mode === 'normal') {
+          $scope.mode = 'tweak';
+        }
+        else {
+          $scope.mode = 'normal';
         }
       };
     }

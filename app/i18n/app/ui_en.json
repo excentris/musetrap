@@ -1,6 +1,8 @@
 {
   "button_lang_es": "Spanish",
   "button_lang_en": "English",
+  "button_tweak": "Tweaks",
+  "lang_selector_placeholder": "Select laguage",
   "tagline": "Something",
   "recipe_selector_placeholder": "Select a recipe...",
   "recipe_description_label": "Description",

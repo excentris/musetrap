@@ -1,6 +1,8 @@
 {
   "button_lang_es": "Español",
   "button_lang_en": "Inglés",
+  "button_tweak": "Ajustes",
+  "lang_selector_placeholder": "Selecciona idioma",
   "tagline": "Algo",
   "recipe_selector_placeholder": "Selecciona una receta...",
   "recipe_description_label": "Descripción",

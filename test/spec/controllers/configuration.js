@@ -72,6 +72,10 @@ describe('Controller: ConfigurationCtrl', function() {
     expect($scope.selectedBundles.length).toBe(0);
   });
 
+  it('should initially have "normal" as mode', function() {
+    expect($scope.mode).toEqual('normal');
+  });
+
   it('should initially have six modules available', function() {
     $httpBackend.flush();
     expect($scope.availableBundles.length).toBe(6);
