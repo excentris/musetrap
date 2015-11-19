@@ -37,31 +37,32 @@
     <div class="container">
       <div class="footer-container">
         <div class="row">
-          <div class="col-lg-8">
-            <div class="btn-group" role="group">
-              <ul class="nav nav-pills">
-                <li role="presentation" ng-class="{'active': '/' == location.active}">
-                  <a ng-href="#/" translate>nav_home</a>
-                </li>
-                <li role="presentation" ng-class="{'active': '/about' == location.active}">
-                  <a ng-href="#/about" translate>nav_about</a>
-                </li>
-              </ul>
+          <nav>
+            <div class="container-fluid">
+              <div class="btn-group" role="group">
+                <ul class="nav nav-pills">
+                  <li role="presentation" ng-class="{'active': '/' == location.active}">
+                    <a ng-href="#/" translate>nav_home</a>
+                  </li>
+                  <li role="presentation" ng-class="{'active': '/about' == location.active}">
+                    <a ng-href="#/about" translate>nav_about</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="nav navbar-right" role="group">
+                <ui-select class="language-select" ng-model="selectedLanguage" theme="bootstrap" on-select="changeLanguage($item)">
+                  <ui-select-match placeholder="Select language">{{ 'button_lang_'+$select.selected | translate }}</ui-select-match>
+                  <ui-select-choices repeat="language in availableLanguages | filter: $select.search" position="up">
+                    <span ng-bind-html="'button_lang_'+language | translate | highlight: $select.search"></span>
+                  </ui-select-choices>
+                </ui-select>
+              </div>
             </div>
-            <div class="btn-group" role="group">
-              <ui-select class="language-select" ng-model="selectedLanguage" theme="bootstrap" on-select="changeLanguage($item)">
-                <ui-select-match placeholder="Select language">{{ 'button_lang_'+$select.selected | translate }}</ui-select-match>
-                <ui-select-choices repeat="language in availableLanguages | filter: $select.search" position="up">
-                  <span ng-bind-html="'button_lang_'+language | translate | highlight: $select.search"></span>
-                </ui-select-choices>
-              </ui-select>
-            </div>
-          </div>
+          </nav>
         </div>
       </div>
     </div>
   </footer>
-
 
   <!-- Google Analytics -->
   <script>

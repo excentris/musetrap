@@ -51,7 +51,7 @@ footer ul {
   margin-right: 10px;
 }
 .language-select {
-  min-width: 140px;
+  width: 140px;
 }
 
 /* fix for select choices positioning */
