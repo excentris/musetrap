@@ -42,16 +42,16 @@ describe('Controller: MainCtrl', function() {
     });
   }));
 
-  it('should initially have no ingredient_bundles', function() {
-    expect($scope.ingredient_bundles.length).toBe(0);
+  it('should initially have no ingredients', function() {
+    expect($scope.ingredients.length).toBe(0);
   });
 
-  it('should have 1 ingredient_bundle after sampling the response on createRecipe', function() {
+  it('should have 1 ingredient after sampling the response on createRecipe', function() {
     $scope.createRecipe();
     // resolve the deferred with a response. 'then' is not yet called.
     queryDeferred.resolve(expectedResponse);
     // propagate promise resolution to 'then'
     $rootScope.$apply();
-    expect($scope.ingredient_bundles.length).toBe(1);
+    expect($scope.ingredients.length).toBe(1);
   });
 });

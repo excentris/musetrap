@@ -60,7 +60,7 @@ angular.module('musetrapApp')
       /**
        * Changes the recipe by changing the selected bundles based on selectedRecipe.
        */
-      $scope.changeRecipe = function changeRecipe($selectedRecipe) {
+      $scope.changeSelectedRecipe = function changeSelectedRecipe($selectedRecipe) {
         if ($selectedRecipe) {
           $scope.selectedBundles = $selectedRecipe.ingredient_bundles;
         }
@@ -72,7 +72,7 @@ angular.module('musetrapApp')
 
       /**
        * Toggle recipe creation mode between normal or tweak. Normal mode simply
-       * shows the createRecipe button after selecting arecipe. Tweak mode shows
+       * shows the createRecipe button after selecting a recipe. Tweak mode shows
        * the different bundle checkboxes as well to further tweak the recipe.
        */
       $scope.toggleMode = function toggleMode() {

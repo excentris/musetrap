@@ -2,7 +2,7 @@
   <div class="controls-container" ng-controller="ConfigurationCtrl">
     <div class="row">
       <div class="input-group">
-        <ui-select class="recipe-select" ng-model="recipe.selected" theme="bootstrap" ng-disabled="disabled" on-select="changeRecipe($item)">
+        <ui-select class="recipe-select" ng-model="recipe.selected" theme="bootstrap" ng-disabled="disabled" on-select="changeSelectedRecipe($item)">
           <ui-select-match allow-clear="true" placeholder="{{'recipe_selector_placeholder' | translate}}">{{$select.selected.id+'.name' | translate}}</ui-select-match>
           <ui-select-choices repeat="recipe in availableRecipes | recipeSearchFilter: $select.search">
             <div ng-bind-html="recipe.id+'.name' | translate | highlight: $select.search"></div>
@@ -38,6 +38,6 @@
     </div>
   </div>
   <div class="recipe-container">
-    <span ng-repeat="ingredient_bundle in ingredient_bundles" class="label label-primary label-ingredient_bundle" translate>{{ingredient_bundle}}</span>
+    <span ng-repeat="ingredient in ingredients" class="label label-primary label-ingredient" translate>{{ingredient}}</span>
   </div>
 </div>

@@ -53,7 +53,7 @@ describe('Controller: ConfigurationCtrl', function() {
   });
 
   it('should have two bundles selected when selecting humanoid_creature recipe', function() {
-    $scope.changeRecipe({
+    $scope.changeSelectedRecipe({
       "name": "Creature",
       "description": "Some kind of creature",
       "ingredient_bundles": ["creatures", "weapons"]
@@ -63,7 +63,7 @@ describe('Controller: ConfigurationCtrl', function() {
 
   it('should reset the selectedBundles and selectedRecipeDescription when clearing the recipe selector', function() {
     $scope.selectedRecipe = {};
-    $scope.changeRecipe();
+    $scope.changeSelectedRecipe();
     expect($scope.selectedBundles).toEqual([]);
     expect($scope.selectedRecipe).toEqual({});
   });
