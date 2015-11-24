@@ -62,7 +62,7 @@ angular.module('musetrapApp')
        */
       $scope.changeSelectedRecipe = function changeSelectedRecipe($selectedRecipe) {
         if ($selectedRecipe) {
-          $scope.selectedBundles = $selectedRecipe.ingredient_bundles;
+          $scope.selectedBundles = angular.copy($selectedRecipe.ingredient_bundles);
         }
         else {
           $scope.selectedBundles = [];
