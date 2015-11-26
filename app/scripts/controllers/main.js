@@ -10,7 +10,7 @@
 angular.module('musetrapApp')
   .controller('MainCtrl', ['$scope', 'Data',
     function($scope, Data) {
-      $scope.ingredients = [];
+      $scope.recipeResults = [];
 
       /**
        * Creates a recipe based on the selected bundles by sampling one ingredient
@@ -31,7 +31,10 @@ angular.module('musetrapApp')
             mergedData = mergedData.concat(sampledData);
           });
 
-          $scope.ingredients = mergedData;
+          var recipeResult = {
+            ingredients: mergedData
+          };
+          $scope.recipeResults.unshift(recipeResult);
         }, function(errorMsg) {
           // if any of the previous promises gets rejected
           // the success callback will never be executed

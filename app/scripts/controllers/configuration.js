@@ -31,7 +31,6 @@ angular.module('musetrapApp')
         console.log('An error occurred: ', errorMsg);
       });
 
-
       var recipesPromise = Data.getRecipes();
       recipesPromise.then(function success(retrievedData) {
         $scope.availableRecipes = retrievedData.data;

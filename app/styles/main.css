@@ -4,8 +4,14 @@
   color: #000;
   padding: 0.2em 0;
 }
+html {
+  position: relative;
+  min-height: 100%;
+}
 body {
   padding: 0;
+  /* Margin bottom by footer height */
+  margin-bottom: 80px;
 }
 header, footer {
   width: 100%;
@@ -21,6 +27,7 @@ header {
 footer {
   position: absolute;
   bottom: 0;
+  height: 80px;
   padding: 20px 0px;
   color: #777;
   border-top: 1px solid #e5e5e5;
@@ -28,6 +35,9 @@ footer {
 footer ul {
   padding: 0px;
   list-style-type: none;
+}
+.main-container {
+  margin-bottom: 80px;
 }
 .controls-container .inspire-button-container {
   text-align: center;
@@ -40,9 +50,15 @@ footer ul {
 .controls-container {
   padding: 5px;
 }
-.recipe-container {
+.recipe-result-container {
   padding: 5px;
   font-size: 19px;
+}
+.latest-recipe-result {
+  margin-bottom: 15px;
+}
+.label-faded {
+  background-color: #78ACD9;
 }
 .recipe-description {
   margin-top: 20px;

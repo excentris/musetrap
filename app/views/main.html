@@ -1,43 +1,45 @@
-<div>
-  <div class="controls-container" ng-controller="ConfigurationCtrl">
-    <div class="row">
-      <div class="input-group">
-        <ui-select class="recipe-select" ng-model="recipe.selected" theme="bootstrap" ng-disabled="disabled" on-select="changeSelectedRecipe($item)">
-          <ui-select-match allow-clear="true" placeholder="{{'recipe_selector_placeholder' | translate}}">{{$select.selected.id+'.name' | translate}}</ui-select-match>
-          <ui-select-choices repeat="recipe in availableRecipes | recipeSearchFilter: $select.search">
-            <div ng-bind-html="recipe.id+'.name' | translate | highlight: $select.search"></div>
-            <small>
-              <span translate>recipe_description_label</span>:
-              <span ng-bind-html="''+recipe.id+'.description' | translate | highlight: $select.search"></span>
-              </br>
-              <span translate>recipe_ingredient_bundles_label</span>:
-              <span ng-bind="recipe.ingredient_bundles.toString()"></span>
-            </small>
-          </ui-select-choices>
-        </ui-select>
-        <span class="input-group-btn">
-          <button type="button" class="btn btn-default" ng-class="{'active': mode == 'tweak'}" ng-click="toggleMode()">
-            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> {{'button_tweak' | translate }}
-          </button>
-        </span>
-      </div>
-    </div>
-    <div class="row" ng-show="recipe.selected">
-      <div class="recipe-description">{{recipe.selected.id+'.description' | translate}}</div>
-    </div>
-    <hr>
-    <div class="row" ng-show="mode === 'tweak'">
-      <label ng-repeat="bundleId in availableBundles" class="bundle-toggle">
-        <input type="checkbox" name="selectedBundles" value="{{bundleId}}" ng-checked="selectedBundles.indexOf(bundleId) > -1" ng-click="toggleBundleSelection(bundleId)"> {{bundleId | translate}}
-      </label>
-    </div>
-    <div class="row" ng-show="selectedBundles.length > 0">
-      <div class="col-lg-8 col-lg-offset-2 inspire-button-container">
-        <a class="btn btn-lg btn-primary" ng-href="#/" ng-click="createRecipe(selectedBundles)">Hit me!</a>
-      </div>
+<div class="controls-container" ng-controller="ConfigurationCtrl">
+  <div class="row">
+    <div class="input-group">
+      <ui-select class="recipe-select" ng-disabled="disabled" ng-model="recipe.selected" on-select="changeSelectedRecipe($item)" theme="bootstrap">
+        <ui-select-match allow-clear="true" placeholder="{{'recipe_selector_placeholder' | translate}}">{{$select.selected.id+'.name' | translate}}</ui-select-match>
+        <ui-select-choices repeat="recipe in availableRecipes | recipeSearchFilter: $select.search">
+          <div ng-bind-html="recipe.id+'.name' | translate | highlight: $select.search"></div>
+          <small>
+            <span translate>recipe_description_label</span>:
+            <span ng-bind-html="''+recipe.id+'.description' | translate | highlight: $select.search"></span>
+            <br>
+            <span translate>recipe_ingredient_bundles_label</span>:
+            <span ng-bind="recipe.ingredient_bundles.toString()"></span>
+          </small>
+        </ui-select-choices>
+      </ui-select>
+      <span class="input-group-btn">
+        <button class="btn btn-default" ng-class="{'active': mode == 'tweak'}" ng-click="toggleMode()" type="button">
+          <span aria-hidden="true" class="glyphicon glyphicon-cog"></span>
+          {{'button_tweak' | translate }}
+        </button>
+      </span>
     </div>
   </div>
-  <div class="recipe-container">
-    <span ng-repeat="ingredient in ingredients" class="label label-primary label-ingredient" translate>{{ingredient}}</span>
+  <div class="row" ng-show="recipe.selected">
+    <div class="recipe-description">{{recipe.selected.id+'.description' | translate}}</div>
+  </div>
+  <hr>
+  <div class="row" ng-show="mode === 'tweak'">
+    <label class="bundle-toggle" ng-repeat="bundleId in availableBundles">
+      <input name="selectedBundles" ng-checked="selectedBundles.indexOf(bundleId) > -1" ng-click="toggleBundleSelection(bundleId)" type="checkbox" value="{{bundleId}}">
+      {{bundleId | translate}}
+    </label>
+  </div>
+  <div class="row" ng-show="selectedBundles.length > 0">
+    <div class="col-lg-8 col-lg-offset-2 inspire-button-container">
+      <a class="btn btn-lg btn-primary" ng-click="createRecipe(selectedBundles)" ng-href="#/">Hit me!</a>
+    </div>
+  </div>
+</div>
+<div class="recipe-result-container">
+  <div class="row recipe-result" ng-class="{'latest-recipe-result': recipeResultIndex === 0}" ng-repeat="(recipeResultIndex, recipeResult) in recipeResults">
+    <span class="label label-ingredient" ng-class="recipeResultIndex === 0 ? 'label-primary' : 'label-faded'" ng-repeat="ingredient in recipeResult.ingredients" translate>{{ingredient}}</span>
   </div>
 </div>

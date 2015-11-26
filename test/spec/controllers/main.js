@@ -43,7 +43,7 @@ describe('Controller: MainCtrl', function() {
   }));
 
   it('should initially have no ingredients', function() {
-    expect($scope.ingredients.length).toBe(0);
+    expect($scope.recipeResults.length).toBe(0);
   });
 
   it('should have 1 ingredient after sampling the response on createRecipe', function() {
@@ -52,6 +52,6 @@ describe('Controller: MainCtrl', function() {
     queryDeferred.resolve(expectedResponse);
     // propagate promise resolution to 'then'
     $rootScope.$apply();
-    expect($scope.ingredients.length).toBe(1);
+    expect($scope.recipeResults.length).toBe(1);
   });
 });
