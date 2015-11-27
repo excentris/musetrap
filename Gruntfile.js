@@ -17,7 +17,8 @@ module.exports = function(grunt) {
     useminPrepare: 'grunt-usemin',
     ngtemplates: 'grunt-angular-templates',
     cdnify: 'grunt-google-cdn',
-    buildcontrol: 'grunt-build-control'
+    buildcontrol: 'grunt-build-control',
+    coveralls: 'grunt-karma-coveralls'
   });
 
   // Configurable paths for the application
@@ -407,6 +408,17 @@ module.exports = function(grunt) {
       unit: {
         configFile: 'test/karma.conf.js',
         singleRun: true
+      }
+    },
+
+    // Code coverage
+    coveralls: {
+      options: {
+        debug: true,
+        coverageDir: 'coverage/',
+        dryRun: true,
+        force: true,
+        recursive: true
       }
     },
 

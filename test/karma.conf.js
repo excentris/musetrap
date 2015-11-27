@@ -46,8 +46,7 @@ module.exports = function(config) {
     ],
 
     // list of files / patterns to exclude
-    exclude: [
-    ],
+    exclude: [],
 
     // web server port
     port: 8080,
@@ -67,8 +66,18 @@ module.exports = function(config) {
     // Which plugins to enable
     plugins: [
       "karma-phantomjs-launcher",
-      "karma-jasmine"
+      "karma-jasmine",
+      "karma-coverage"
     ],
+
+    reporters: ['coverage'],
+    preprocessors: {
+      "app/scripts/**/*.js": "coverage"
+    },
+    coverageReporter: {
+      type: "lcov",
+      dir: "coverage/"
+    },
 
     // Continuous Integration mode
     // if true, it capture browsers, run tests and exit
