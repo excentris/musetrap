@@ -17,7 +17,6 @@ angular.module('musetrapApp')
       $scope.recipe = {};
 
       $scope.$watchCollection('selectedBundles', function(newValue) {
-        // TODO optimize this
         newValue.forEach(function(bundle) {
           $translatePartialLoader.addPart('ingredient_bundles/' + bundle);
         });
