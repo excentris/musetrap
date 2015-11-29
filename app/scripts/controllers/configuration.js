@@ -23,18 +23,13 @@ angular.module('musetrapApp')
       });
 
       // retrieve available bundles from metadata file
-      var metadataPromise = Data.getMetadata();
-      metadataPromise.then(function success(retrievedData) {
-        $scope.availableBundles = retrievedData.data.availableBundles;
-      }, function(errorMsg) {
-        console.log('An error occurred: ', errorMsg);
+      Data.getAvailableBundles().then(function() {
+        $scope.availableBundles = Data.availableBundles;
       });
 
-      var recipesPromise = Data.getRecipes();
-      recipesPromise.then(function success(retrievedData) {
-        $scope.availableRecipes = retrievedData.data;
-      }, function(errorMsg) {
-        console.log('An error occurred: ', errorMsg);
+      // retrieve available recipes
+      Data.getAvailableRecipes().then(function() {
+        $scope.availableRecipes = Data.availableRecipes;
       });
 
       /**
@@ -57,6 +52,7 @@ angular.module('musetrapApp')
 
       /**
        * Changes the recipe by changing the selected bundles based on selectedRecipe.
+       * @param $selectedRecipe the selected recipe object
        */
       $scope.changeSelectedRecipe = function changeSelectedRecipe($selectedRecipe) {
         if ($selectedRecipe) {

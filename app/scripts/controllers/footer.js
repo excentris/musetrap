@@ -26,11 +26,8 @@ angular.module('musetrapApp')
       });
 
       // retrieve available languages from metadata file
-      var metadataPromise = Data.getMetadata();
-      metadataPromise.then(function success(retrievedData) {
-        $scope.availableLanguages = retrievedData.data.availableLanguages;
-      }, function(errorMsg) {
-        console.log('An error occurred: ', errorMsg);
+      Data.getAvailableLanguages().then(function() {
+        $scope.availableLanguages = Data.availableLanguages;
       });
 
       /**
