@@ -45,7 +45,7 @@ angular.module('musetrapApp')
      * @return a promise for the available bundles
      */
     Data.getAvailableBundles = function() {
-      return $http.get('metadata.json')
+      return $http.get('metadata.json', {cache: true})
         .success(function(retrievedData) {
           Data.availableBundles = retrievedData.availableBundles;
         })
@@ -59,7 +59,7 @@ angular.module('musetrapApp')
      * @return a promise for the available languages
      */
     Data.getAvailableLanguages = function() {
-      return $http.get('metadata.json')
+      return $http.get('metadata.json', {cache: true})
         .success(function(retrievedData) {
           Data.availableLanguages = retrievedData.availableLanguages;
         })
