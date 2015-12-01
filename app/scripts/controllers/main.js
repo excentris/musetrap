@@ -8,8 +8,8 @@
  * Controller of the musetrapApp
  */
 angular.module('musetrapApp')
-  .controller('MainCtrl', ['$scope', 'Data',
-    function($scope, Data) {
+  .controller('MainCtrl', ['$scope', 'Data', 'NotificationFactory', '$translate',
+    function($scope, Data, NotificationFactory, $translate) {
       $scope.recipeResults = [];
 
       /**
@@ -35,11 +35,11 @@ angular.module('musetrapApp')
             ingredients: mergedData
           };
           $scope.recipeResults.unshift(recipeResult);
-        }, function(errorMsg) {
+        }, function() {
           // if any of the previous promises gets rejected
           // the success callback will never be executed
           // the error callback will be called...
-          console.log('An error occurred: ', errorMsg);
+          NotificationFactory.error($translate.instant("errors.create_recipe"));
         });
       };
     }

@@ -17,7 +17,8 @@ angular
     'ngSanitize',
     'ngTouch',
     'ui.select',
-    'pascalprecht.translate'
+    'pascalprecht.translate',
+    'toastr'
   ]).config(function($routeProvider) {
     $routeProvider
       .when('/', {

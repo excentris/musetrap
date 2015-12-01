@@ -6,7 +6,7 @@
  * @description service dedicated to data retrieval
  */
 angular.module('musetrapApp')
-  .factory('Data', ['$http', '$q', function Data($http, $q) {
+  .factory('Data', ['$http', '$q', 'NotificationFactory', '$translate', function Data($http, $q, NotificationFactory, $translate) {
 
     Data.availableBundles = [];
     Data.availableLanguages = [];
@@ -36,7 +36,7 @@ angular.module('musetrapApp')
           Data.availableRecipes = retrievedData;
         })
         .error(function() {
-          //NotificationFactory.showError();
+          NotificationFactory.error($translate.instant("errors.get_available_recipes"));
         });
     };
 
@@ -45,12 +45,14 @@ angular.module('musetrapApp')
      * @return a promise for the available bundles
      */
     Data.getAvailableBundles = function() {
-      return $http.get('metadata.json', {cache: true})
+      return $http.get('metadata.json', {
+          cache: true
+        })
         .success(function(retrievedData) {
           Data.availableBundles = retrievedData.availableBundles;
         })
         .error(function() {
-          //NotificationFactory.showError();
+          NotificationFactory.error($translate.instant("errors.get_available_bundles"));
         });
     };
 
@@ -59,12 +61,14 @@ angular.module('musetrapApp')
      * @return a promise for the available languages
      */
     Data.getAvailableLanguages = function() {
-      return $http.get('metadata.json', {cache: true})
+      return $http.get('metadata.json', {
+          cache: true
+        })
         .success(function(retrievedData) {
           Data.availableLanguages = retrievedData.availableLanguages;
         })
         .error(function() {
-          //NotificationFactory.showError();
+          NotificationFactory.error($translate.instant("errors.get_available_languages"));
         });
     };
 

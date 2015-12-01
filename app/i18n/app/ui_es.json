@@ -8,5 +8,11 @@
   "recipe_description_label": "Descripción",
   "recipe_ingredient_bundles_label": "Ingredientes",
   "nav_home": "Inicio",
-  "nav_about": "Acerca de Musetrap"
+  "nav_about": "Acerca de Musetrap",
+  "errors": {
+    "get_available_recipes": "Error al obtener las recetas disponibles",
+    "get_available_bundles": "Error al obtener los conjuntos de ingredientes disponibles",
+    "get_available_languages": "Error al obtener idiomas disponibles",
+    "create_recipe": "Error al procesar la receta"
+  }
 }

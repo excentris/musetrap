@@ -8,5 +8,11 @@
   "recipe_description_label": "Description",
   "recipe_ingredient_bundles_label": "Ingredients",
   "nav_home": "Home",
-  "nav_about": "About"
+  "nav_about": "About",
+  "errors": {
+    "get_available_recipes": "Could not get available recipes",
+    "get_available_bundles": "Could not get available ingredient bundles",
+    "get_available_languages": "Could not get available languages",
+    "create_recipe": "Error processing recipe"
+  }
 }
