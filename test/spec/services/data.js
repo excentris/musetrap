@@ -18,6 +18,11 @@ describe('Service: Data', function() {
     spyOn(NotificationFactory, 'error');
   }));
 
+  afterEach(function() {
+    $httpBackend.verifyNoOutstandingExpectation();
+    $httpBackend.verifyNoOutstandingRequest();
+  });
+
   it('should display an error when getAvailableRecipes fails', function() {
     $httpBackend.when('GET', 'data/recipes.json').respond(401, '');
     Data.getAvailableRecipes();
@@ -37,5 +42,12 @@ describe('Service: Data', function() {
     Data.getAvailableLanguages();
     $httpBackend.flush();
     expect(NotificationFactory.error).toHaveBeenCalled();
+  });
+
+  it('should get the "animals" and "creatures" bundle when calling getIngredients with those bundleIds', function() {
+    $httpBackend.expectGET('data/ingredient_bundles/animals.json').respond({});
+    $httpBackend.expectGET('data/ingredient_bundles/creatures.json').respond({});
+    Data.getIngredients(['animals', 'creatures']);
+    $httpBackend.flush();
   });
 });
