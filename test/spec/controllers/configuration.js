@@ -107,4 +107,12 @@ describe('Controller: ConfigurationCtrl', function() {
     expect($scope.selectedBundles.length).toBe(0);
     expect($scope.availableBundles.length).toBe(2);
   });
+
+  it('should correctly toggle the mode', function() {
+    $scope.mode = 'normal';
+    $scope.toggleMode();
+    expect($scope.mode).toEqual('tweak');
+    $scope.toggleMode();
+    expect($scope.mode).toEqual('normal');
+  });
 });
