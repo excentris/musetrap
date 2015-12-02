@@ -32,10 +32,9 @@ angular.module('musetrapApp')
      */
     Data.getAvailableRecipes = function() {
       return $http.get('data/recipes.json')
-        .success(function(retrievedData) {
-          Data.availableRecipes = retrievedData;
-        })
-        .error(function() {
+        .then(function(retrievedData) {
+          Data.availableRecipes = retrievedData.data;
+        }, function() {
           NotificationFactory.error($translate.instant("errors.get_available_recipes"));
         });
     };
@@ -48,10 +47,9 @@ angular.module('musetrapApp')
       return $http.get('metadata.json', {
           cache: true
         })
-        .success(function(retrievedData) {
-          Data.availableBundles = retrievedData.availableBundles;
-        })
-        .error(function() {
+        .then(function(retrievedData) {
+          Data.availableBundles = retrievedData.data.availableBundles;
+        }, function() {
           NotificationFactory.error($translate.instant("errors.get_available_bundles"));
         });
     };
@@ -64,10 +62,9 @@ angular.module('musetrapApp')
       return $http.get('metadata.json', {
           cache: true
         })
-        .success(function(retrievedData) {
-          Data.availableLanguages = retrievedData.availableLanguages;
-        })
-        .error(function() {
+        .then(function(retrievedData) {
+          Data.availableLanguages = retrievedData.data.availableLanguages;
+        }, function() {
           NotificationFactory.error($translate.instant("errors.get_available_languages"));
         });
     };

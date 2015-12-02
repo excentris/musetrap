@@ -13,7 +13,7 @@ describe('Service: NotificationFactory', function () {
     spyOn(toastr, 'error');
   }));
 
-  it('Should display a notification error', function() {
+  it('should display a notification error', function() {
     NotificationFactory.error('error');
     expect(toastr.error).toHaveBeenCalled();
   });
