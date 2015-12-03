@@ -21,6 +21,9 @@ header, footer {
 header {
   text-align: center;
 }
+h1 a.title {
+  color: #666;
+}
 
 /* Custom page footer */
 
