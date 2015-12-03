@@ -23,6 +23,10 @@ header {
 }
 h1 a.title {
   color: #666;
+  text-decoration: none;
+}
+h1 a.title:hover {
+  color: #999;
 }
 
 /* Custom page footer */
