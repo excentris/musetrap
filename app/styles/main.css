@@ -21,6 +21,9 @@ header, footer {
 header {
   text-align: center;
 }
+h2 {
+  color: #666;
+}
 h1 a.title {
   color: #666;
   text-decoration: none;

@@ -43,6 +43,7 @@ angular
     });
     $translateProvider.useSanitizeValueStrategy('sanitizeParameters');
     $translateProvider.preferredLanguage('en');
+    $translateProvider.fallbackLanguage('en');
   }).run(function($rootScope, $translate) {
     $rootScope.$on('$translatePartialLoaderStructureChanged', function() {
       $translate.refresh();
