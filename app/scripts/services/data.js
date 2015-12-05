@@ -31,7 +31,9 @@ angular.module('musetrapApp')
      * @return a promise for the recipes
      */
     Data.getAvailableRecipes = function() {
-      return $http.get('data/recipes.json')
+      return $http.get('data/recipes.json', {
+          cache: true
+        })
         .then(function(retrievedData) {
           Data.availableRecipes = retrievedData.data;
         }, function() {
