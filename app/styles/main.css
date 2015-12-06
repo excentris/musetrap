@@ -21,7 +21,7 @@ header, footer {
 header {
   text-align: center;
 }
-h2 {
+h2, h3 {
   color: #666;
 }
 h1 a.title {
