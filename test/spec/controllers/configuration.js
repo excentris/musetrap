@@ -5,11 +5,12 @@ describe('Controller: ConfigurationCtrl', function() {
   // load the controller's module
   beforeEach(module('musetrapApp'));
 
-  var ConfigurationCtrl, $scope, $rootScope, $httpBackend;
+  var ConfigurationCtrl, $scope, $rootScope, $httpBackend, $translatePartialLoader;
 
   // Initialize the controller
-  beforeEach(inject(function(_$httpBackend_, $controller, _$rootScope_) {
+  beforeEach(inject(function(_$httpBackend_, $controller, _$rootScope_, _$translatePartialLoader_) {
     $httpBackend = _$httpBackend_;
+    $translatePartialLoader = _$translatePartialLoader_;
 
     // swallow i18n calls
     $httpBackend.when('GET', /i18n/).respond({});
@@ -52,6 +53,10 @@ describe('Controller: ConfigurationCtrl', function() {
     expect($scope.availableRecipes.length).toBe(2);
   });
 
+  it('should initially have three registered translation parts', function() {
+    expect($translatePartialLoader.getRegisteredParts()).toEqual(['app/ui', 'recipes', 'ingredient_bundles']);
+  });
+
   it('should have two bundles selected when selecting humanoid_creature recipe', function() {
     $scope.changeSelectedRecipe({
       "name": "Creature",
@@ -88,6 +93,11 @@ describe('Controller: ConfigurationCtrl', function() {
     $scope.toggleBundleSelection('animals');
     expect($scope.selectedBundles).toEqual(['animals']);
     expect($scope.availableBundles.length).toBe(2);
+
+    // apply changes for the $scope.$watchCollection to be triggered
+    $scope.$apply();
+    // the animals part should have been added to the registered parts
+    expect($translatePartialLoader.getRegisteredParts()).toEqual(['app/ui', 'recipes', 'ingredient_bundles', 'ingredient_bundles/animals']);
   });
 
   it('should have 0 selected modules after deselecting the only one selected', function() {
