@@ -19,6 +19,8 @@ module.exports = function(grunt) {
     cdnify: 'grunt-google-cdn',
     buildcontrol: 'grunt-build-control',
     coveralls: 'grunt-karma-coveralls'
+  })({
+    customTasksDir: 'grunt/tasks'
   });
 
   // Configurable paths for the application
@@ -255,32 +257,6 @@ module.exports = function(grunt) {
       }
     },
 
-    // The following *-min tasks will produce minified files in the dist folder
-    // By default, your `index.html`'s <!-- Usemin block --> will take care of
-    // minification. These next options are pre-configured if you do not wish
-    // to use the Usemin blocks.
-    // cssmin: {
-    //   dist: {
-    //     files: {
-    //       '<%= yeoman.dist %>/styles/main.css': [
-    //         '.tmp/styles/{,*/}*.css'
-    //       ]
-    //     }
-    //   }
-    // },
-    // uglify: {
-    //   dist: {
-    //     files: {
-    //       '<%= yeoman.dist %>/scripts/scripts.js': [
-    //         '<%= yeoman.dist %>/scripts/scripts.js'
-    //       ]
-    //     }
-    //   }
-    // },
-    // concat: {
-    //   dist: {}
-    // },
-
     imagemin: {
       dist: {
         files: [{
@@ -476,54 +452,6 @@ module.exports = function(grunt) {
   grunt.registerTask('server', 'DEPRECATED TASK. Use the "serve" task instead', function(target) {
     grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
     grunt.task.run(['serve:' + target]);
-  });
-
-  // generate metadata file
-  grunt.registerTask('metadata', 'Generate metadata', function() {
-    var metadata = {};
-
-    // generate the list of available bundles
-    var bundlePaths = grunt.file.expand(grunt.config.get('metadata.src'));
-    metadata.availableBundles = [];
-    bundlePaths.forEach(function(bundlePath) {
-      var bundleNameAndExtension = bundlePath.match(/\/([^/]*)$/)[1];
-      var bundleName = bundleNameAndExtension.substr(0, bundleNameAndExtension.lastIndexOf('.'));
-      metadata.availableBundles.push(bundleName);
-    });
-
-    // add locale related stuff
-    metadata.availableLanguages = grunt.config.get('i18n.locales');
-
-    grunt.file.write(grunt.config.get('yeoman.app') + '/metadata.json', JSON.stringify(metadata, null, '\t'));
-  });
-
-  // create ingredient_bundle translation files
-  grunt.registerTask('createTranslationFiles', 'Create ingredient_bundle translation files', function() {
-    // generate the list of available bundles
-    var bundlePaths = grunt.file.expand(grunt.config.get('metadata.src'));
-    bundlePaths.forEach(function(bundlePath) {
-      var bundleNameAndExtension = bundlePath.match(/\/([^/]*)$/)[1];
-      var bundleName = bundleNameAndExtension.substr(0, bundleNameAndExtension.lastIndexOf('.'));
-
-      // read bundle
-      var bundleData = grunt.file.readJSON(bundlePath);
-
-      // create translation file
-      var bundleTranslationSkeleton = {};
-      bundleData.forEach(function(ingredientKey) {
-        bundleTranslationSkeleton[ingredientKey] = "";
-      });
-
-      // write bundle
-      var destPath = grunt.config.get('i18n.ingredient_bundles.dest');
-      var locales = grunt.config.get('i18n.locales');
-      locales.forEach(function(locale) {
-        var bundleTranslationSkeletonPath = destPath + bundleName + "_" + locale + ".json";
-        if (!grunt.file.exists(bundleTranslationSkeletonPath)) {
-          grunt.file.write(bundleTranslationSkeletonPath, JSON.stringify(bundleTranslationSkeleton, null, '\t'));
-        }
-      });
-    });
   });
 
   grunt.registerTask('test', [
