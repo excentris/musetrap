@@ -8,8 +8,8 @@
  * Controller of the musetrapApp
  */
 angular.module('musetrapApp')
-  .controller('FooterCtrl', ['$scope', '$translate', '$location', 'Data',
-    function($scope, $translate, $location, Data) {
+  .controller('FooterCtrl', ['$scope', '$translate', '$location', 'DataFactory',
+    function($scope, $translate, $location, DataFactory) {
       $scope.location = {
         active: ""
       };
@@ -26,8 +26,8 @@ angular.module('musetrapApp')
       });
 
       // retrieve available languages from metadata file
-      Data.getAvailableLanguages().then(function() {
-        $scope.availableLanguages = Data.availableLanguages;
+      DataFactory.getAvailableLanguages().then(function() {
+        $scope.availableLanguages = DataFactory.availableLanguages;
       });
 
       /**

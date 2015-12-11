@@ -2,22 +2,22 @@
 
 /**
  * @ngdoc service
- * @name musetrapApp.Data
+ * @name musetrapApp.DataFactory
  * @description service dedicated to data retrieval
  */
 angular.module('musetrapApp')
-  .factory('Data', ['$http', '$q', 'NotificationFactory', '$translate', function Data($http, $q, NotificationFactory, $translate) {
+  .factory('DataFactory', ['$http', '$q', 'NotificationFactory', '$translate', function DataFactory($http, $q, NotificationFactory, $translate) {
 
-    Data.availableBundles = [];
-    Data.availableLanguages = [];
-    Data.availableRecipes = [];
+    DataFactory.availableBundles = [];
+    DataFactory.availableLanguages = [];
+    DataFactory.availableRecipes = [];
 
     /**
      * Retrieves ingredient_bundles data for the specified bundleIds
      * @param bundleIds an array with bundle ids
      * @return an array of promises, one for each requested bundle
      */
-    Data.getIngredients = function(bundleIds) {
+    DataFactory.getIngredients = function(bundleIds) {
       var promises = [];
       angular.forEach(bundleIds, function(bundleId) {
         promises.push($http.get('data/ingredient_bundles/' + bundleId + '.json'));
@@ -30,12 +30,12 @@ angular.module('musetrapApp')
      * Retrieves the recipes file
      * @return a promise for the recipes
      */
-    Data.getAvailableRecipes = function() {
+    DataFactory.getAvailableRecipes = function() {
       return $http.get('data/recipes.json', {
           cache: true
         })
         .then(function(retrievedData) {
-          Data.availableRecipes = retrievedData.data;
+          DataFactory.availableRecipes = retrievedData.data;
         }, function() {
           NotificationFactory.error($translate.instant("errors.get_available_recipes"));
         });
@@ -45,12 +45,12 @@ angular.module('musetrapApp')
      * Retrieves metadata file and extracts available bundles
      * @return a promise for the available bundles
      */
-    Data.getAvailableBundles = function() {
+    DataFactory.getAvailableBundles = function() {
       return $http.get('metadata.json', {
           cache: true
         })
         .then(function(retrievedData) {
-          Data.availableBundles = retrievedData.data.availableBundles;
+          DataFactory.availableBundles = retrievedData.data.availableBundles;
         }, function() {
           NotificationFactory.error($translate.instant("errors.get_available_bundles"));
         });
@@ -60,16 +60,16 @@ angular.module('musetrapApp')
      * Retrieves metadata file and extracts available languages
      * @return a promise for the available languages
      */
-    Data.getAvailableLanguages = function() {
+    DataFactory.getAvailableLanguages = function() {
       return $http.get('metadata.json', {
           cache: true
         })
         .then(function(retrievedData) {
-          Data.availableLanguages = retrievedData.data.availableLanguages;
+          DataFactory.availableLanguages = retrievedData.data.availableLanguages;
         }, function() {
           NotificationFactory.error($translate.instant("errors.get_available_languages"));
         });
     };
 
-    return Data;
+    return DataFactory;
   }]);

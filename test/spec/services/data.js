@@ -1,15 +1,15 @@
 'use strict';
 
-describe('Service: Data', function() {
+describe('Service: DataFactory', function() {
 
   // load the service's module
   beforeEach(module('musetrapApp'));
 
   // instantiate service
-  var Data, $httpBackend, NotificationFactory;
-  beforeEach(inject(function(_Data_, _$httpBackend_, _NotificationFactory_) {
+  var DataFactory, $httpBackend, NotificationFactory;
+  beforeEach(inject(function(_DataFactory_, _$httpBackend_, _NotificationFactory_) {
     $httpBackend = _$httpBackend_;
-    Data = _Data_;
+    DataFactory = _DataFactory_;
     NotificationFactory = _NotificationFactory_;
 
     // swallow i18n calls
@@ -25,21 +25,21 @@ describe('Service: Data', function() {
 
   it('should display an error when getAvailableRecipes fails', function() {
     $httpBackend.when('GET', 'data/recipes.json').respond(401, '');
-    Data.getAvailableRecipes();
+    DataFactory.getAvailableRecipes();
     $httpBackend.flush();
     expect(NotificationFactory.error).toHaveBeenCalled();
   });
 
   it('should display an error when getAvailableBundles fails', function() {
     $httpBackend.when('GET', 'metadata.json').respond(401, '');
-    Data.getAvailableBundles();
+    DataFactory.getAvailableBundles();
     $httpBackend.flush();
     expect(NotificationFactory.error).toHaveBeenCalled();
   });
 
   it('should display an error when getAvailableBundles fails', function() {
     $httpBackend.when('GET', 'metadata.json').respond(401, '');
-    Data.getAvailableLanguages();
+    DataFactory.getAvailableLanguages();
     $httpBackend.flush();
     expect(NotificationFactory.error).toHaveBeenCalled();
   });
@@ -47,7 +47,7 @@ describe('Service: Data', function() {
   it('should get the "animals" and "creatures" bundle when calling getIngredients with those bundleIds', function() {
     $httpBackend.expectGET('data/ingredient_bundles/animals.json').respond({});
     $httpBackend.expectGET('data/ingredient_bundles/creatures.json').respond({});
-    Data.getIngredients(['animals', 'creatures']);
+    DataFactory.getIngredients(['animals', 'creatures']);
     $httpBackend.flush();
   });
 });

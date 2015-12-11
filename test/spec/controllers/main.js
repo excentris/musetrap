@@ -30,7 +30,7 @@ describe('Controller: MainCtrl', function() {
 
     MainCtrl = $controller('MainCtrl', {
       $scope: $scope,
-      Data: mockedDataService
+      DataFactory: mockedDataService
     });
   }));
 

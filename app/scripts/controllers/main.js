@@ -8,8 +8,8 @@
  * Controller of the musetrapApp
  */
 angular.module('musetrapApp')
-  .controller('MainCtrl', ['$scope', 'Data', 'NotificationFactory', '$translate',
-    function($scope, Data, NotificationFactory, $translate) {
+  .controller('MainCtrl', ['$scope', 'DataFactory', 'NotificationFactory', '$translate',
+    function($scope, DataFactory, NotificationFactory, $translate) {
       $scope.recipeResults = [];
 
       /**
@@ -19,7 +19,7 @@ angular.module('musetrapApp')
        */
       $scope.createRecipe = function(selectedBundles) {
         // first get all data for the selected bundles
-        var dataPromises = Data.getIngredients(selectedBundles);
+        var dataPromises = DataFactory.getIngredients(selectedBundles);
         dataPromises.then(function success(retrievedData) {
           var mergedData = [];
 
