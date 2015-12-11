@@ -37,7 +37,7 @@ module.exports = function(grunt) {
           done();
         }
       });
-    };
+    }
 
     function createBundleFile(bundleName, ingredientsArray) {
       // write bundle
@@ -47,13 +47,10 @@ module.exports = function(grunt) {
         grunt.file.write(bundleFile, JSON.stringify(ingredientsArray, null, '\t'));
       }
       grunt.task.run(['sortBundle:' + bundleName]);
-    };
+    }
 
     function createTranslationFiles(bundleName, translations) {
-      // write translation file
-      var locales = grunt.config.get('i18n.locales');
-      var destPath = grunt.config.get('data.ingredient_bundles.dest');
-
+      // write translation files
       for (var locale in translations) {
         if (translations.hasOwnProperty(locale)) {
           var i18nDestPath = grunt.config.get('i18n.ingredient_bundles.dest');
@@ -63,7 +60,7 @@ module.exports = function(grunt) {
           }
         }
       }
-    };
+    }
 
     function buildQuestions() {
       var questions = [];
@@ -90,7 +87,7 @@ module.exports = function(grunt) {
       });
 
       return questions;
-    };
+    }
 
     ask();
   });

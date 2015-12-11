@@ -1,5 +1,4 @@
 module.exports = function(grunt) {
-  var inquirer = require("inquirer");
   grunt.registerTask('sortBundle', 'Sort bundle', function(bundleName) {
     if (!bundleName || !bundleName.length) {
       grunt.fail.warn("You need to specify a bundle name.");
@@ -15,5 +14,4 @@ module.exports = function(grunt) {
     // write bundle
     grunt.file.write(bundleFile, JSON.stringify(bundleData, null, '\t'));
   });
-
 };
