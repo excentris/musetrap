@@ -430,6 +430,13 @@ module.exports = function(grunt) {
       ingredient_bundles: {
         dest: '<%= yeoman.app %>/i18n/ingredient_bundles/'
       }
+    },
+
+    // data configuration
+    data: {
+      ingredient_bundles: {
+        dest: '<%= yeoman.app %>/data/ingredient_bundles/'
+      }
     }
   });
 

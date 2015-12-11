@@ -1,30 +1,30 @@
 module.exports = function(grunt) {
+  var inquirer = require("inquirer");
   // create ingredient_bundle translation files
-  grunt.registerTask('createTranslationFiles', 'Create ingredient_bundle translation files', function() {
-    // generate the list of available bundles
-    var bundlePaths = grunt.file.expand(grunt.config.get('metadata.src'));
-    bundlePaths.forEach(function(bundlePath) {
-      var bundleNameAndExtension = bundlePath.match(/\/([^/]*)$/)[1];
-      var bundleName = bundleNameAndExtension.substr(0, bundleNameAndExtension.lastIndexOf('.'));
+  grunt.registerTask('createTranslationFiles', 'Create ingredient_bundle translation files', function(bundleName) {
+    if (!bundleName || !bundleName.length) {
+      grunt.fail.warn("You need to specify a bundle name.");
+    }
 
-      // read bundle
-      var bundleData = grunt.file.readJSON(bundlePath);
+    var locales = grunt.config.get('i18n.locales');
+    var destPath = grunt.config.get('data.ingredient_bundles.dest');
+    var bundleFile = destPath + bundleName + ".json";
+    var bundleData = grunt.file.readJSON(bundleFile);
 
-      // create translation file
+    // for each available locale
+    locales.forEach(function(locale) {
       var bundleTranslationSkeleton = {};
+
+      // ask for the translation for each ingredient key
       bundleData.forEach(function(ingredientKey) {
         bundleTranslationSkeleton[ingredientKey] = "";
       });
 
-      // write bundle
-      var destPath = grunt.config.get('i18n.ingredient_bundles.dest');
-      var locales = grunt.config.get('i18n.locales');
-      locales.forEach(function(locale) {
-        var bundleTranslationSkeletonPath = destPath + bundleName + "_" + locale + ".json";
-        if (!grunt.file.exists(bundleTranslationSkeletonPath)) {
-          grunt.file.write(bundleTranslationSkeletonPath, JSON.stringify(bundleTranslationSkeleton, null, '\t'));
-        }
-      });
+      var i18nDestPath = grunt.config.get('i18n.ingredient_bundles.dest');
+      var bundleTranslationSkeletonPath = i18nDestPath + bundleName + "_" + locale + ".json";
+      if (!grunt.file.exists(bundleTranslationSkeletonPath)) {
+        grunt.file.write(bundleTranslationSkeletonPath, JSON.stringify(bundleTranslationSkeleton, null, '\t'));
+      }
     });
   });
 };
