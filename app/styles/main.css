@@ -21,7 +21,7 @@ header, footer {
 header {
   text-align: center;
 }
-h2, h3 {
+h2, h3, h3.selected-bundles-title, h3.available-bundles-title {
   color: #666;
 }
 h1 a.title {
@@ -51,17 +51,13 @@ footer ul {
 }
 .controls-container .inspire-button-container {
   text-align: center;
-  padding: 10px 0;
 }
 .label-ingredient {
   display: inline-block;
   margin-right: 10px;
 }
-.controls-container {
-  padding: 5px;
-}
 .recipe-result-container {
-  padding: 5px;
+  margin-top: 20px;
   font-size: 19px;
 }
 .latest-recipe-result {
@@ -70,11 +66,8 @@ footer ul {
 .label-faded {
   background-color: #78ACD9;
 }
-.recipe-description {
-  margin-top: 20px;
-}
-.bundle-toggle {
-  margin-right: 10px;
+.recipe-description-container {
+  padding: 10px;
 }
 .language-select {
   width: 160px;
@@ -82,6 +75,21 @@ footer ul {
 .input-group .recipe-select .ui-select-toggle {
   border-bottom-left-radius: 4px;
   border-top-left-radius: 4px;
+}
+
+/* bundle styles */
+
+.selectable-bundles-container {
+  font-size: 19px;
+}
+.available-bundles-container {
+  font-size: 19px;
+}
+.as-sortable-item, .as-sortable-placeholder {
+  margin-top: 3px;
+  margin-bottom: 3px;
+  margin-right: 10px;
+  float: left;
 }
 
 /* fix for select choices positioning */

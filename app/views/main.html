@@ -22,15 +22,32 @@
       </span>
     </div>
   </div>
-  <div class="row" ng-show="recipe.selected">
-    <div class="recipe-description">{{recipe.selected.id+'.description' | translate}}</div>
+
+  <div class="row recipe-description-container">
+    <div class="recipe-description" ng-show="recipe.selected">{{recipe.selected.id+'.description' | translate}}</div>
   </div>
-  <hr>
-  <div class="row" ng-show="mode === 'tweak'">
-    <label class="bundle-toggle" ng-repeat="bundleId in availableBundles">
-      <input name="selectedBundles" ng-checked="selectedBundles.indexOf(bundleId) > -1" ng-click="toggleBundleSelection(bundleId)" type="checkbox" value="{{bundleId}}">
-      {{bundleId | translate}}
-    </label>
+
+  <div class="row bundle-selection-container" ng-show="mode === 'tweak'">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title available-bundles-title">Available bundles</h3>
+      </div>
+      <div as-sortable="sortableAvailableBundles" class="panel-body available-bundles-container" ng-model="availableBundles">
+        <span as-sortable-item class="label label-ingredient label-default" ng-repeat="bundleId in availableBundles track by $index">
+          <div as-sortable-item-handle>{{bundleId | translate}}</div>
+        </span>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title selected-bundles-title">Selected bundles</h3>
+      </div>
+      <div as-sortable="sortableSelectedBundles" class="panel-body selectable-bundles-container" ng-model="selectedBundles">
+        <span as-sortable-item class="label label-ingredient label-default" ng-repeat="bundleId in selectedBundles track by $index">
+          <div as-sortable-item-handle>{{bundleId | translate}}</div>
+        </span>
+      </div>
+    </div>
   </div>
   <div class="row" ng-show="selectedBundles.length > 0">
     <div class="col-lg-8 col-lg-offset-2 inspire-button-container">
@@ -38,8 +55,16 @@
     </div>
   </div>
 </div>
-<div class="recipe-result-container">
-  <div class="row recipe-result" ng-class="{'latest-recipe-result': recipeResultIndex === 0}" ng-repeat="(recipeResultIndex, recipeResult) in recipeResults">
-    <span class="label label-ingredient" ng-class="recipeResultIndex === 0 ? 'label-primary' : 'label-faded'" ng-repeat="ingredient in recipeResult.ingredients" translate>{{ingredient}}</span>
+
+<div class="row recipe-result-container" ng-show="recipeResults.length > 0">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title bundles-title">Recipe results</h3>
+    </div>
+    <div class="panel-body">
+      <div class="recipe-result" ng-class="{'latest-recipe-result': recipeResultIndex === 0}" ng-repeat="(recipeResultIndex, recipeResult) in recipeResults">
+        <span class="label label-ingredient" ng-class="recipeResultIndex === 0 ? 'label-primary' : 'label-faded'" ng-repeat="ingredient in recipeResult.ingredients track by $index" translate>{{ingredient}}</span>
+      </div>
+    </div>
   </div>
 </div>
