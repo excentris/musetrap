@@ -30,7 +30,7 @@
   <div class="row bundle-selection-container" ng-show="mode === 'tweak'">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title available-bundles-title">Available bundles</h3>
+        <h3 class="panel-title available-bundles-title">{{ 'available_bundles_title' | translate }}</h3>
       </div>
       <div as-sortable="sortableAvailableBundles" class="panel-body available-bundles-container" ng-model="availableBundles">
         <span as-sortable-item class="label label-ingredient label-default" ng-repeat="bundleId in availableBundles track by $index">
@@ -40,7 +40,7 @@
     </div>
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title selected-bundles-title">Selected bundles</h3>
+        <h3 class="panel-title selected-bundles-title">{{ 'selected_bundles_title' | translate }}</h3>
       </div>
       <div as-sortable="sortableSelectedBundles" class="panel-body selectable-bundles-container" ng-model="selectedBundles">
         <span as-sortable-item class="label label-ingredient label-default" ng-repeat="bundleId in selectedBundles track by $index">
@@ -59,7 +59,7 @@
 <div class="row recipe-result-container" ng-show="recipeResults.length > 0">
   <div class="panel panel-primary">
     <div class="panel-heading">
-      <h3 class="panel-title bundles-title">Recipe results</h3>
+      <h3 class="panel-title recipe-results-title">{{ 'recipe_results_title' | translate }}</h3>
     </div>
     <div class="panel-body">
       <div class="recipe-result" ng-class="{'latest-recipe-result': recipeResultIndex === 0}" ng-repeat="(recipeResultIndex, recipeResult) in recipeResults">
