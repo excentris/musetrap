@@ -49,7 +49,7 @@
       </div>
     </div>
   </div>
-  <div class="row" ng-show="selectedBundles.length > 0">
+  <div class="row" ng-show="recipe.selected || (selectedBundles.length > 0 && mode === 'tweak')">
     <div class="col-lg-8 col-lg-offset-2 inspire-button-container">
       <a class="btn btn-lg btn-primary" ng-click="createRecipe(selectedBundles)" ng-href="#/">Hit me!</a>
     </div>
