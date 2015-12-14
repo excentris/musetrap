@@ -7,6 +7,9 @@
   "recipe_selector_placeholder": "Selecciona una receta...",
   "recipe_description_label": "Descripción",
   "recipe_ingredient_bundles_label": "Ingredientes",
+  "available_bundles_title": "Conjuntos de ingredients disponibles",
+  "selected_bundles_title": "Conjuntos de ingredients seleccionados",
+  "recipe_results_title": "Resultado",
   "nav_home": "Inicio",
   "nav_about": "Acerca de Musetrap",
   "errors": {

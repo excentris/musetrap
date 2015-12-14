@@ -7,6 +7,9 @@
   "recipe_selector_placeholder": "Select a recipe...",
   "recipe_description_label": "Description",
   "recipe_ingredient_bundles_label": "Ingredients",
+  "available_bundles_title": "Available ingredient bundles",
+  "selected_bundles_title": "Selected ingredient bundles",
+  "recipe_results_title": "Results",
   "nav_home": "Home",
   "nav_about": "About",
   "errors": {
