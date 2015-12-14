@@ -16,6 +16,14 @@ angular.module('musetrapApp')
       $scope.selectedBundles = [];
       $scope.recipe = {};
 
+      $scope.sortableAvailableBundles = {
+        clone: true
+      };
+
+      $scope.sortableSelectedBundles = {
+        allowDuplicates: true
+      };
+
       $scope.$watchCollection('selectedBundles', function(newValue) {
         newValue.forEach(function(bundle) {
           $translatePartialLoader.addPart('ingredient_bundles/' + bundle);
@@ -31,24 +39,6 @@ angular.module('musetrapApp')
       DataFactory.getAvailableRecipes().then(function() {
         $scope.availableRecipes = DataFactory.availableRecipes;
       });
-
-      /**
-       * Toggle selection for a given bundle by its id
-       * @param  bundleId the id of the bundle being toggled
-       */
-      $scope.toggleBundleSelection = function toggleBundleSelection(bundleId) {
-        if (_.contains($scope.availableBundles, bundleId)) {
-          var idx = $scope.selectedBundles.indexOf(bundleId);
-          // is currently selected
-          if (idx > -1) {
-            $scope.selectedBundles.splice(idx, 1);
-          }
-          // is newly selected
-          else {
-            $scope.selectedBundles.push(bundleId);
-          }
-        }
-      };
 
       /**
        * Changes the recipe by changing the selected bundles based on selectedRecipe.

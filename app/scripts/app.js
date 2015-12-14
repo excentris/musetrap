@@ -18,7 +18,8 @@ angular
     'ngTouch',
     'ui.select',
     'pascalprecht.translate',
-    'toastr'
+    'toastr',
+    'as.sortable'
   ]).config(function($routeProvider) {
     $routeProvider
       .when('/', {
