@@ -47,7 +47,7 @@ footer ul {
   list-style-type: none;
 }
 .main-container {
-  margin-bottom: 80px;
+  margin-bottom: 100px; /* 80px height footer + 20px margin for spacing with create recipe button / recipe results */
 }
 .controls-container .inspire-button-container {
   text-align: center;
