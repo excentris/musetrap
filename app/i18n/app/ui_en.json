@@ -12,6 +12,7 @@
   "recipe_results_title": "Results",
   "clear_selected_bundles_button_title": "Clear selected bundles",
   "inspire_button_text": "Wake the Muses",
+  "selected_bundles_empty_state": "Drag available bundles here to create a recipe",
   "nav_home": "Home",
   "nav_about": "About",
   "errors": {

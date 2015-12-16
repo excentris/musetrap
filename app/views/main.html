@@ -46,6 +46,7 @@
         <h3 class="panel-title selected-bundles-title">{{ 'selected_bundles_title' | translate }}</h3>
       </div>
       <div as-sortable="sortableSelectedBundles" class="panel-body selectable-bundles-container" ng-model="selectedBundles">
+        <span class="selected-bundles-empty-state text-muted" ng-show="selectedBundles.length === 0 && sortableSelectedBundles.showEmptyState === true"><span aria-hidden="true" class="glyphicon glyphicon-info-sign"></span>{{ 'selected_bundles_empty_state' | translate }}</span>
         <span as-sortable-item class="label label-ingredient label-default" ng-repeat="bundleId in selectedBundles track by $index">
           <div as-sortable-item-handle>{{bundleId | translate}}</div>
         </span>

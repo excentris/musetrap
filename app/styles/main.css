@@ -103,7 +103,12 @@ footer ul {
   min-height: 58px;
 }
 .selectable-bundles-container {
+  text-align: center;
   font-size: 19px;
+}
+.selected-bundles-empty-state .glyphicon {
+  font-size: 16px;
+  margin-right: 10px;
 }
 .available-bundles-container {
   font-size: 19px;

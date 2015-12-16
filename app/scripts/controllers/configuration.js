@@ -18,11 +18,19 @@ angular.module('musetrapApp')
 
       // drag and drop options for the available bundles panel in tweak mode
       $scope.sortableAvailableBundles = {
-        clone: true
+        clone: true,
+        dragStart: function() {
+          $scope.sortableSelectedBundles.showEmptyState = false;
+        },
+        dragEnd: function() {
+          $scope.sortableSelectedBundles.showEmptyState = true;
+        }
       };
 
       // drag and drop options for the selected bundles panel in tweak mode
       $scope.sortableSelectedBundles = {
+        showDropZone: false,
+        showEmptyState: true,
         allowDuplicates: true,
         dragStart: function() {
           $scope.sortableSelectedBundles.showDropZone = true;

@@ -12,6 +12,7 @@
   "recipe_results_title": "Resultado",
   "clear_selected_bundles_button_title": "Elimina los conjuntos seleccionados",
   "inspire_button_text": "Despierta las Musas",
+  "selected_bundles_empty_state": "Arrastra conjuntos disponibles aquí para crear una receta",
   "nav_home": "Inicio",
   "nav_about": "Acerca de Musetrap",
   "errors": {
