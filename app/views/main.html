@@ -40,7 +40,7 @@
     </div>
     <div class="panel panel-default">
       <div class="panel-heading">
-        <div class="btn-group pull-right clear-selected-bundles-button" ng-show="selectedBundles.length > 0" ng-click="clearSelectedBundles()">
+        <div class="btn-group pull-right clear-selected-bundles-button" ng-show="selectedBundles.length > 0" ng-click="clearSelectedBundles()" title="{{ 'clear_selected_bundles_button_title' | translate }}">
           <span aria-hidden="true" class="glyphicon glyphicon-trash"></span>
         </div>
         <h3 class="panel-title selected-bundles-title">{{ 'selected_bundles_title' | translate }}</h3>
@@ -57,7 +57,7 @@
   </div>
   <div class="row" ng-show="recipe.selected || (selectedBundles.length > 0 && mode === 'tweak')">
     <div class="col-lg-8 col-lg-offset-2 inspire-button-container">
-      <a class="btn btn-lg btn-primary" ng-click="createRecipe(selectedBundles)" ng-href="#/">Hit me!</a>
+      <a class="btn btn-lg btn-primary" ng-click="createRecipe(selectedBundles)" ng-href="#/">{{ 'inspire_button_text' | translate }}</a>
     </div>
   </div>
 </div>
