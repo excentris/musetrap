@@ -40,6 +40,9 @@
     </div>
     <div class="panel panel-default">
       <div class="panel-heading">
+        <div class="btn-group pull-right clear-selected-bundles-button" ng-show="selectedBundles.length > 0" ng-click="clearSelectedBundles()">
+          <span aria-hidden="true" class="glyphicon glyphicon-trash"></span>
+        </div>
         <h3 class="panel-title selected-bundles-title">{{ 'selected_bundles_title' | translate }}</h3>
       </div>
       <div as-sortable="sortableSelectedBundles" class="panel-body selectable-bundles-container" ng-model="selectedBundles">
@@ -47,6 +50,9 @@
           <div as-sortable-item-handle>{{bundleId | translate}}</div>
         </span>
       </div>
+    </div>
+    <div as-sortable="sortableRemoveBundles" class="well drop-zone" ng-model="selectedBundles" ng-show="sortableSelectedBundles.showDropZone">
+      <span aria-hidden="true" class="glyphicon glyphicon-trash"></span>
     </div>
   </div>
   <div class="row" ng-show="recipe.selected || (selectedBundles.length > 0 && mode === 'tweak')">

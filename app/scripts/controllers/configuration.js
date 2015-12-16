@@ -16,13 +16,28 @@ angular.module('musetrapApp')
       $scope.selectedBundles = [];
       $scope.recipe = {};
 
+      // drag and drop options for the available bundles panel in tweak mode
       $scope.sortableAvailableBundles = {
         clone: true
       };
 
+      // drag and drop options for the selected bundles panel in tweak mode
       $scope.sortableSelectedBundles = {
-        allowDuplicates: true
+        allowDuplicates: true,
+        dragStart: function() {
+          $scope.sortableSelectedBundles.showDropZone = true;
+        },
+        dragEnd: function(event) {
+          var outside = event.dest.sortableScope.$id !== event.source.sortableScope.$id;
+          if (outside) {
+            event.source.sortableScope.removeItem(event.source.index);
+          }
+          $scope.sortableSelectedBundles.showDropZone = false;
+        }
       };
+
+      // drag and drop options for the drop zone used to remove selected bundles in tweak mode
+      $scope.sortableRemoveBundles = {};
 
       $scope.$watchCollection('selectedBundles', function(newValue) {
         newValue.forEach(function(bundle) {
@@ -66,6 +81,14 @@ angular.module('musetrapApp')
         else {
           $scope.mode = 'normal';
         }
+      };
+
+
+      /**
+       * Clear the selectedBundles array.
+       */
+      $scope.clearSelectedBundles = function clearSelectedBundles() {
+        $scope.selectedBundles = [];
       };
     }
   ]);

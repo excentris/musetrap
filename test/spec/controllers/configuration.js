@@ -101,4 +101,11 @@ describe('Controller: ConfigurationCtrl', function() {
     $scope.toggleMode();
     expect($scope.mode).toEqual('normal');
   });
+
+  it('should have no bundles selected after calling clearSelectedBundles', function() {
+    $scope.selectedBundles = ['animals'];
+    expect($scope.selectedBundles.length).toBe(1);
+    $scope.clearSelectedBundles();
+    expect($scope.selectedBundles.length).toBe(0);
+  });
 });
