@@ -47,7 +47,8 @@ footer ul {
   list-style-type: none;
 }
 .main-container {
-  margin-bottom: 100px; /* 80px height footer + 20px margin for spacing with create recipe button / recipe results */
+  margin-bottom: 100px;
+  /* 80px height footer + 20px margin for spacing with create recipe button / recipe results */
 }
 .controls-container .inspire-button-container {
   text-align: center;
@@ -75,6 +76,25 @@ footer ul {
 .input-group .recipe-select .ui-select-toggle {
   border-bottom-left-radius: 4px;
   border-top-left-radius: 4px;
+}
+.drop-zone {
+  color: #A94442;
+  background-color: #F2DEDE;
+  border-color: #EBCCD1;
+  font-size: 32px;
+  text-align: center;
+  height: 80px;
+  padding: 0;
+}
+.drop-zone .as-sortable-placeholder {
+  display: none !important;
+  border: 1px solid green;
+}
+.drop-zone .glyphicon-trash {
+  line-height: 80px;
+}
+.clear-selected-bundles-button {
+  cursor: pointer;
 }
 
 /* bundle styles */
