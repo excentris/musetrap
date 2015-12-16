@@ -99,6 +99,9 @@ footer ul {
 
 /* bundle styles */
 
+.panel-body {
+  min-height: 58px;
+}
 .selectable-bundles-container {
   font-size: 19px;
 }
