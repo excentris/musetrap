@@ -61,8 +61,8 @@ footer ul {
   margin-top: 20px;
   font-size: 19px;
 }
-.latest-recipe-result {
-  margin-bottom: 15px;
+.recipe-result:first-of-type + .recipe-result {
+  margin-top: 15px;
 }
 .label-faded {
   background-color: #78ACD9;
