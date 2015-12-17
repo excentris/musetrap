@@ -2,6 +2,7 @@
 	"availableBundles": [
 		"animal_traits",
 		"animals",
+		"colors_basic",
 		"creatures",
 		"physical_actions",
 		"plants",
