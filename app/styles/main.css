@@ -143,3 +143,23 @@ footer ul {
     margin: 40px 0;
   }
 }
+@media screen and (min-width: 320px) and (max-width: 768px) {
+  .main-container {
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+  /* footer on smaller devices */
+  .language-select-container {
+    margin-top: 10px;
+  }
+}
+@media screen and (max-width: 319px) {
+  .main-container {
+    margin-right: 5px;
+    margin-left: 5px;
+  }
+  /* footer on smaller devices */
+  .language-select-container {
+    margin-top: 10px;
+  }
+}

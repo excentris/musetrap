@@ -1,6 +1,6 @@
 <div class="controls-container" ng-controller="ConfigurationCtrl">
   <div class="row">
-    <div class="input-group">
+    <div class="input-group recipe-select-tweak">
       <ui-select class="recipe-select" ng-disabled="disabled" ng-model="recipe.selected" on-select="changeSelectedRecipe($item)" theme="bootstrap">
         <ui-select-match allow-clear="true" placeholder="{{'recipe_selector_placeholder' | translate}}">{{$select.selected.id+'.name' | translate}}</ui-select-match>
         <ui-select-choices repeat="recipe in availableRecipes | recipeSearchFilter: $select.search">
@@ -14,7 +14,7 @@
           </small>
         </ui-select-choices>
       </ui-select>
-      <span class="input-group-btn">
+      <span class="input-group-btn recipe-tweak">
         <button class="btn btn-default" ng-class="{'active': mode == 'tweak'}" ng-click="toggleMode()" type="button">
           <span aria-hidden="true" class="glyphicon glyphicon-cog"></span>
           {{'button_tweak' | translate }}
