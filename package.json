@@ -33,7 +33,8 @@
     "karma-jasmine": "*",
     "karma-phantomjs-launcher": "*",
     "load-grunt-config": "^0.19.1",
-    "time-grunt": "^1.0.0"
+    "time-grunt": "^1.0.0",
+    "underscore": "^1.8.3"
   },
   "engines": {
     "node": ">=0.10.0"

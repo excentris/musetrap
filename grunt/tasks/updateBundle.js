@@ -1,7 +1,8 @@
 module.exports = function(grunt) {
   var inquirer = require("inquirer");
-  // create ingredient_bundle translation files
-  grunt.registerTask('newBundle', 'Create ingredient_bundle', function(bundleName) {
+  var _ = require('underscore');
+  // create/update ingredient_bundle translation files
+  grunt.registerTask('updateBundle', 'Create/update ingredient_bundle', function(bundleName, newBundle) {
     if (!bundleName || !bundleName.length) {
       grunt.fail.warn("You need to specify a bundle name.");
     }
@@ -10,7 +11,9 @@ module.exports = function(grunt) {
     var locales = grunt.config.get('i18n.locales');
     var ingredientsArray = [];
     var ingredientQuestions = buildIngredientQuestions();
-    var bundleNameTranslationQuestions = buildBundleNameTranslationQuestions();
+    if (newBundle) {
+      var bundleNameTranslationQuestions = buildBundleNameTranslationQuestions();
+    }
     var translations = {};
     // initialize translation objects, one per locale
     locales.forEach(function(locale) {
@@ -33,8 +36,8 @@ module.exports = function(grunt) {
           askForIngredients();
         }
         else {
-          createBundleFile(bundleName, ingredientsArray);
-          createTranslationFiles(bundleName, translations);
+          createUpdateBundleFile(bundleName, ingredientsArray);
+          createUpdateTranslationFiles(bundleName, translations);
           done();
         }
       });
@@ -56,17 +59,23 @@ module.exports = function(grunt) {
       });
     }
 
-    function createBundleFile(bundleName, ingredientsArray) {
+    function createUpdateBundleFile(bundleName, ingredientsArray) {
       // write bundle
       var destPath = grunt.config.get('data.ingredient_bundles.dest');
-      var bundleFile = destPath + bundleName + ".json";
-      if (!grunt.file.exists(bundleFile)) {
-        grunt.file.write(bundleFile, JSON.stringify(ingredientsArray, null, '\t'));
+      var bundleFilePath = destPath + bundleName + ".json";
+      if (!grunt.file.exists(bundleFilePath)) {
+        grunt.file.write(bundleFilePath, JSON.stringify(ingredientsArray, null, '\t'));
+      }
+      else {
+        var bundleFileArray = grunt.file.readJSON(bundleFilePath);
+          // update array with new ingredients
+        ingredientsArray.push.apply(ingredientsArray, bundleFileArray);
+        grunt.file.write(bundleFilePath, JSON.stringify(ingredientsArray, null, '\t'));
       }
       grunt.task.run(['sortBundle:' + bundleName]);
     }
 
-    function createTranslationFiles(bundleName, translations) {
+    function createUpdateTranslationFiles(bundleName, translations) {
       // write translation files
       for (var locale in translations) {
         if (translations.hasOwnProperty(locale)) {
@@ -74,6 +83,12 @@ module.exports = function(grunt) {
           var bundleTranslationSkeletonPath = i18nDestPath + bundleName + "_" + locale + ".json";
           if (!grunt.file.exists(bundleTranslationSkeletonPath)) {
             grunt.file.write(bundleTranslationSkeletonPath, JSON.stringify(translations[locale], null, '\t'));
+          }
+          else {
+            var translationsObject = grunt.file.readJSON(bundleTranslationSkeletonPath);
+            // update with new values
+            _.extend(translationsObject, translations[locale]);
+            grunt.file.write(bundleTranslationSkeletonPath, JSON.stringify(translationsObject, null, '\t'));
           }
         }
       }
@@ -120,6 +135,11 @@ module.exports = function(grunt) {
       return questions;
     }
 
-    askForBundleNameTranslations();
+    if (newBundle) {
+      askForBundleNameTranslations();
+    }
+    else {
+      askForIngredients();
+    }
   });
 };
