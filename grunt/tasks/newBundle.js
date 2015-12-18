@@ -9,15 +9,16 @@ module.exports = function(grunt) {
     var done = this.async();
     var locales = grunt.config.get('i18n.locales');
     var ingredientsArray = [];
-    var questions = buildQuestions();
+    var ingredientQuestions = buildIngredientQuestions();
+    var bundleNameTranslationQuestions = buildBundleNameTranslationQuestions();
     var translations = {};
     // initialize translation objects, one per locale
     locales.forEach(function(locale) {
       translations[locale] = {};
     });
 
-    function ask() {
-      inquirer.prompt(questions, function(answers) {
+    function askForIngredients() {
+      inquirer.prompt(ingredientQuestions, function(answers) {
         if (answers.ingredient) {
           ingredientsArray.push(answers.ingredient);
         }
@@ -29,13 +30,29 @@ module.exports = function(grunt) {
         });
 
         if (answers.askAgain) {
-          ask();
+          askForIngredients();
         }
         else {
           createBundleFile(bundleName, ingredientsArray);
           createTranslationFiles(bundleName, translations);
           done();
         }
+      });
+    }
+
+    function askForBundleNameTranslations() {
+      inquirer.prompt(bundleNameTranslationQuestions, function(answers) {
+        var destPath = grunt.config.get('i18n.dest');
+        locales.forEach(function(locale) {
+          if (answers[locale]) {
+            var translationFile = destPath + "ingredient_bundles_" + locale + ".json";
+            var translations = grunt.file.readJSON(translationFile);
+            translations[bundleName] = answers[locale];
+            grunt.file.write(translationFile, JSON.stringify(translations, null, '\t'));
+          }
+        });
+        grunt.task.run(['metadata']);
+        askForIngredients();
       });
     }
 
@@ -62,7 +79,7 @@ module.exports = function(grunt) {
       }
     }
 
-    function buildQuestions() {
+    function buildIngredientQuestions() {
       var questions = [];
 
       questions.push({
@@ -89,6 +106,20 @@ module.exports = function(grunt) {
       return questions;
     }
 
-    ask();
+    function buildBundleNameTranslationQuestions() {
+      var questions = [];
+
+      locales.forEach(function(locale) {
+        questions.push({
+          type: "input",
+          name: locale,
+          message: "Bundle name translation (" + locale + "):"
+        });
+      });
+
+      return questions;
+    }
+
+    askForBundleNameTranslations();
   });
 };

@@ -426,6 +426,7 @@ module.exports = function(grunt) {
 
     // i18n related configuration
     i18n: {
+      dest: '<%= yeoman.app %>/i18n/',
       locales: ["en", "es"],
       ingredient_bundles: {
         dest: '<%= yeoman.app %>/i18n/ingredient_bundles/'
