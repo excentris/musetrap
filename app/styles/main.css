@@ -88,14 +88,13 @@ footer ul {
 }
 .drop-zone .as-sortable-placeholder {
   display: none !important;
-  border: 1px solid green;
 }
 .drop-zone .glyphicon-trash {
   line-height: 80px;
-  color: #666;
 }
 .clear-selected-bundles-button {
   cursor: pointer;
+  color: #666;
 }
 
 /* bundle styles */
