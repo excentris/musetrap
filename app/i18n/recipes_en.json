@@ -5,6 +5,10 @@
   },
   "animal_warrior": {
     "name": "Animal warrior",
-    "description": "A warrior with animal traits"
+    "description": "A warrior with animal traits."
+  },
+  "hybrid_animal": {
+    "name": "Hybrid animal",
+    "description": "A hybrid animal is one with parentage of two separate species."
   }
 }

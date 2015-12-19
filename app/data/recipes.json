@@ -4,4 +4,7 @@
 }, {
   "id": "animal_warrior",
   "ingredient_bundles": ["animals", "weapons"]
+}, {
+  "id": "hybrid_animal",
+  "ingredient_bundles": ["animals", "animals"]
 }]

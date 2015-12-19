@@ -6,5 +6,9 @@
   "animal_warrior": {
     "name": "Guerrero animal",
     "description": "Un guerrero con rasgos animales"
+  },
+  "hybrid_animal": {
+    "name": "Animal híbrido",
+    "description": "Un animal híbrido es el resultado de cruzar animales de diferentes especies."
   }
 }
