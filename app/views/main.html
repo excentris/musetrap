@@ -32,33 +32,33 @@
       <div class="panel-heading">
         <h3 class="panel-title available-bundles-title">{{ 'available_bundles_title' | translate }}</h3>
       </div>
-      <div as-sortable="sortableAvailableBundles" class="panel-body available-bundles-container" ng-model="availableBundles">
-        <span as-sortable-item class="label label-ingredient label-default" ng-repeat="bundleId in availableBundles track by $index">
+      <div as-sortable="sortableAvailableBundles" class="panel-body available-bundles-container" ng-model="bundles.available">
+        <span as-sortable-item class="label label-ingredient label-default" ng-repeat="bundleId in bundles.available">
           <div as-sortable-item-handle>{{bundleId | translate}}</div>
         </span>
       </div>
     </div>
     <div class="panel panel-default">
       <div class="panel-heading">
-        <div class="btn-group pull-right clear-selected-bundles-button" ng-show="selectedBundles.length > 0" ng-click="clearSelectedBundles()" title="{{ 'clear_selected_bundles_button_title' | translate }}">
+        <div class="btn-group pull-right clear-selected-bundles-button" ng-show="bundles.selected.length > 0" ng-click="clearSelectedBundles()" title="{{ 'clear_selected_bundles_button_title' | translate }}">
           <span aria-hidden="true" class="glyphicon glyphicon-trash"></span>
         </div>
         <h3 class="panel-title selected-bundles-title">{{ 'selected_bundles_title' | translate }}</h3>
       </div>
-      <div as-sortable="sortableSelectedBundles" class="panel-body selectable-bundles-container" ng-model="selectedBundles">
-        <span class="selected-bundles-empty-state text-muted" ng-show="selectedBundles.length === 0 && sortableSelectedBundles.showEmptyState === true"><span aria-hidden="true" class="glyphicon glyphicon-info-sign"></span>{{ 'selected_bundles_empty_state' | translate }}</span>
-        <span as-sortable-item class="label label-ingredient label-default" ng-repeat="bundleId in selectedBundles track by $index">
+      <div as-sortable="sortableSelectedBundles" class="panel-body selectable-bundles-container" ng-model="bundles.selected">
+        <span class="selected-bundles-empty-state text-muted" ng-show="bundles.selected.length === 0 && sortableSelectedBundles.showEmptyState === true"><span aria-hidden="true" class="glyphicon glyphicon-info-sign"></span>{{ 'selected_bundles_empty_state' | translate }}</span>
+        <span as-sortable-item class="label label-ingredient label-default" ng-repeat="bundleId in bundles.selected">
           <div as-sortable-item-handle>{{bundleId | translate}}</div>
         </span>
       </div>
     </div>
-    <div as-sortable="sortableRemoveBundles" class="well drop-zone" ng-model="selectedBundles" ng-show="sortableSelectedBundles.showDropZone">
+    <div as-sortable="sortableRemoveBundles" class="well drop-zone" ng-model="bundles.selected" ng-show="sortableSelectedBundles.showDropZone">
       <span aria-hidden="true" class="glyphicon glyphicon-trash"></span>
     </div>
   </div>
-  <div class="row" ng-show="recipe.selected || (selectedBundles.length > 0 && mode === 'tweak')">
+  <div class="row" ng-show="recipe.selected || (bundles.selected.length > 0 && mode === 'tweak')">
     <div class="col-lg-8 col-lg-offset-2 inspire-button-container">
-      <a class="btn btn-lg btn-primary" ng-click="createRecipe(selectedBundles)" ng-href="#/">{{ 'inspire_button_text' | translate }}</a>
+      <a class="btn btn-lg btn-primary" ng-click="createRecipe(bundles.selected)" ng-href="#/">{{ 'inspire_button_text' | translate }}</a>
     </div>
   </div>
 </div>

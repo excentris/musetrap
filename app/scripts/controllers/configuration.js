@@ -11,9 +11,10 @@ angular.module('musetrapApp')
   .controller('ConfigurationCtrl', ['$scope', 'DataFactory', '$translatePartialLoader',
     function($scope, DataFactory, $translatePartialLoader) {
       $scope.mode = 'normal';
-      $scope.availableBundles = [];
       $scope.availableRecipes = [];
-      $scope.selectedBundles = [];
+      $scope.bundles = {};
+      $scope.bundles.available = [];
+      $scope.bundles.selected = [];
       $scope.recipe = {};
 
       // drag and drop options for the available bundles panel in tweak mode
@@ -47,7 +48,7 @@ angular.module('musetrapApp')
       // drag and drop options for the drop zone used to remove selected bundles in tweak mode
       $scope.sortableRemoveBundles = {};
 
-      $scope.$watchCollection('selectedBundles', function(newValue) {
+      $scope.$watchCollection('bundles.selected', function(newValue) {
         newValue.forEach(function(bundle) {
           $translatePartialLoader.addPart('ingredient_bundles/' + bundle);
         });
@@ -55,7 +56,7 @@ angular.module('musetrapApp')
 
       // retrieve available bundles from metadata file
       DataFactory.getAvailableBundles().then(function() {
-        $scope.availableBundles = DataFactory.availableBundles;
+        $scope.bundles.available = DataFactory.availableBundles;
       });
 
       // retrieve available recipes
@@ -69,10 +70,10 @@ angular.module('musetrapApp')
        */
       $scope.changeSelectedRecipe = function changeSelectedRecipe($selectedRecipe) {
         if ($selectedRecipe) {
-          $scope.selectedBundles = angular.copy($selectedRecipe.ingredient_bundles);
+          $scope.bundles.selected = angular.copy($selectedRecipe.ingredient_bundles);
         }
         else {
-          $scope.selectedBundles = [];
+          $scope.bundles.selected = [];
           $scope.recipe = {};
         }
       };
@@ -93,10 +94,10 @@ angular.module('musetrapApp')
 
 
       /**
-       * Clear the selectedBundles array.
+       * Clear the bundles.selected array.
        */
       $scope.clearSelectedBundles = function clearSelectedBundles() {
-        $scope.selectedBundles = [];
+        $scope.bundles.selected = [];
       };
     }
   ]);

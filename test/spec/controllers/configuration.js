@@ -63,18 +63,18 @@ describe('Controller: ConfigurationCtrl', function() {
       "description": "Some kind of creature",
       "ingredient_bundles": ["creatures", "weapons"]
     });
-    expect($scope.selectedBundles).toEqual(['creatures', 'weapons']);
+    expect($scope.bundles.selected).toEqual(['creatures', 'weapons']);
   });
 
-  it('should reset the selectedBundles and selectedRecipeDescription when clearing the recipe selector', function() {
+  it('should reset the bundles.selected and selectedRecipeDescription when clearing the recipe selector', function() {
     $scope.selectedRecipe = {};
     $scope.changeSelectedRecipe();
-    expect($scope.selectedBundles).toEqual([]);
+    expect($scope.bundles.selected).toEqual([]);
     expect($scope.selectedRecipe).toEqual({});
   });
 
   it('should initially have no modules selected', function() {
-    expect($scope.selectedBundles.length).toBe(0);
+    expect($scope.bundles.selected.length).toBe(0);
   });
 
   it('should initially have "normal" as mode', function() {
@@ -83,11 +83,11 @@ describe('Controller: ConfigurationCtrl', function() {
 
   it('should initially have six modules available', function() {
     $httpBackend.flush();
-    expect($scope.availableBundles.length).toBe(6);
+    expect($scope.bundles.available.length).toBe(6);
   });
 
   it('should correctly register translation parts for selected bundles', function() {
-    $scope.selectedBundles = ['animals'];
+    $scope.bundles.selected = ['animals'];
     // apply changes for the $scope.$watchCollection to be triggered
     $scope.$apply();
     // the animals part should have been added to the registered parts
@@ -103,9 +103,9 @@ describe('Controller: ConfigurationCtrl', function() {
   });
 
   it('should have no bundles selected after calling clearSelectedBundles', function() {
-    $scope.selectedBundles = ['animals'];
-    expect($scope.selectedBundles.length).toBe(1);
+    $scope.bundles.selected = ['animals'];
+    expect($scope.bundles.selected.length).toBe(1);
     $scope.clearSelectedBundles();
-    expect($scope.selectedBundles.length).toBe(0);
+    expect($scope.bundles.selected.length).toBe(0);
   });
 });
