@@ -102,7 +102,7 @@ footer ul {
 .panel-body {
   min-height: 58px;
 }
-.selectable-bundles-container {
+.selected-bundles-container {
   text-align: center;
   font-size: 19px;
 }

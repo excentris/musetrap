@@ -92,12 +92,19 @@ angular.module('musetrapApp')
         }
       };
 
-
       /**
        * Clear the bundles.selected array.
        */
       $scope.clearSelectedBundles = function clearSelectedBundles() {
         $scope.bundles.selected = [];
+      };
+
+      /**
+       * Custom track by function to be able to have duplicates inside the
+       * bundles ng-repeat. This is necessary to avoid issues with ng-sortable.
+       */
+      $scope.bundleTracking = function(index, bundleId) {
+        return index + bundleId;
       };
     }
   ]);
