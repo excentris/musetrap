@@ -17,6 +17,11 @@ angular.module('musetrapApp')
       $scope.bundles.selected = [];
       $scope.recipe = {};
 
+      $scope.overselected = false;
+      $scope.setOverSelected = function(overselected) {
+        $scope.overselected = overselected;
+      };
+
       // drag and drop options for the available bundles panel in tweak mode
       $scope.sortableAvailableBundles = {
         clone: true,
@@ -25,6 +30,11 @@ angular.module('musetrapApp')
         },
         dragEnd: function() {
           $scope.sortableSelectedBundles.showEmptyState = true;
+        },
+        itemMoved: function(eventObj) {
+          if (!$scope.overselected) {
+            eventObj.dest.sortableScope.removeItem(eventObj.dest.index);
+          }
         }
       };
 

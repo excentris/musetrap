@@ -45,7 +45,7 @@
         </div>
         <h3 class="panel-title selected-bundles-title">{{ 'selected_bundles_title' | translate }}</h3>
       </div>
-      <div as-sortable="sortableSelectedBundles" class="panel-body selected-bundles-container" ng-model="bundles.selected">
+      <div as-sortable="sortableSelectedBundles" ng-mouseenter="setOverSelected(true)" ng-mouseleave="setOverSelected(false)" class="panel-body selected-bundles-container" ng-model="bundles.selected">
         <span class="selected-bundles-empty-state text-muted" ng-show="bundles.selected.length === 0 && sortableSelectedBundles.showEmptyState === true"><span aria-hidden="true" class="glyphicon glyphicon-info-sign"></span>{{ 'selected_bundles_empty_state' | translate }}</span>
         <span as-sortable-item class="label label-ingredient label-default" ng-repeat="(bundleIndex, bundleId) in bundles.selected track by bundleTracking(bundleIndex, bundleId)">
           <div as-sortable-item-handle>{{bundleId | translate}}</div>
