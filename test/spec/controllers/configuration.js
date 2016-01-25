@@ -112,4 +112,36 @@ describe('Controller: ConfigurationCtrl', function() {
   it('should correctly return a combined index when using track by bundleTracking', function() {
     expect($scope.bundleTracking(0, 'animals')).toBe('0animals');
   });
+
+  it('should correctly set the empty state when starting/stopping to drag bundle labels available', function() {
+    expect($scope.sortableAvailableBundles.clone).toEqual(true);
+    expect($scope.sortableSelectedBundles.showEmptyState).toEqual(true);
+    $scope.sortableAvailableBundles.dragStart();
+    expect($scope.sortableSelectedBundles.showEmptyState).toEqual(false);
+    $scope.sortableAvailableBundles.dragEnd();
+    expect($scope.sortableSelectedBundles.showEmptyState).toEqual(true);
+  });
+
+  it('should correctly show/hide the drop zone when starting/stopping to drag bundle labels selected', function() {
+    expect($scope.sortableSelectedBundles.showDropZone).toEqual(false);
+    $scope.sortableSelectedBundles.dragStart();
+    expect($scope.sortableSelectedBundles.showDropZone).toEqual(true);
+    // dragEnd event mocking the action of dragging a bundle to a different
+    // sortable, which in our case can only be the dropzone.
+    var dragEndEventMockOutside = {
+      dest: {
+        sortableScope: {
+          $id: 0
+        }
+      },
+      source: {
+        sortableScope: {
+          $id: 1,
+          removeItem: function() {}
+        }
+      }
+    };
+    $scope.sortableSelectedBundles.dragEnd(dragEndEventMockOutside);
+    expect($scope.sortableSelectedBundles.showDropZone).toEqual(false);
+  });
 });
