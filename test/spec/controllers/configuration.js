@@ -108,4 +108,8 @@ describe('Controller: ConfigurationCtrl', function() {
     $scope.clearSelectedBundles();
     expect($scope.bundles.selected.length).toBe(0);
   });
+
+  it('should correctly return a combined index when using track by bundleTracking', function() {
+    expect($scope.bundleTracking(0, 'animals')).toBe('0animals');
+  });
 });
