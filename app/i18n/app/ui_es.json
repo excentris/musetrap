@@ -12,7 +12,6 @@
   "recipe_results_title": "Resultado",
   "clear_selected_bundles_button_title": "Elimina los conjuntos seleccionados",
   "inspire_button_text": "Despierta las Musas",
-  "selected_bundles_empty_state": "Arrastra conjuntos disponibles aquí para crear una receta",
   "nav_home": "Inicio",
   "nav_about": "Acerca de Musetrap",
   "errors": {
@@ -20,5 +19,9 @@
     "get_available_bundles": "Error al obtener los conjuntos de ingredientes disponibles",
     "get_available_languages": "Error al obtener idiomas disponibles",
     "create_recipe": "Error al procesar la receta"
+  },
+  "empty_state": {
+    "selected_bundles": "Arrastra conjuntos disponibles aquí para crear una receta",
+    "home": "Para empezar selecciona una de las recetas disponibles o haz click en Ajustes para desatar el poder de las Musas"
   }
 }

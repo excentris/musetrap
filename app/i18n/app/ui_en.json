@@ -12,7 +12,6 @@
   "recipe_results_title": "Results",
   "clear_selected_bundles_button_title": "Clear selected bundles",
   "inspire_button_text": "Wake the Muses",
-  "selected_bundles_empty_state": "Drag available bundles here to create a recipe",
   "nav_home": "Home",
   "nav_about": "About",
   "errors": {
@@ -20,5 +19,9 @@
     "get_available_bundles": "Could not get available ingredient bundles",
     "get_available_languages": "Could not get available languages",
     "create_recipe": "Error processing recipe"
+  },
+  "empty_state": {
+    "selected_bundles": "Drag available bundles here to create a recipe",
+    "home": "To get started either select a premade recipe or click on Tweaks to unleash the power of the Muses"
   }
 }

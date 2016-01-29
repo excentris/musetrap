@@ -27,6 +27,10 @@
     <div class="recipe-description" ng-show="recipe.selected">{{recipe.selected.id+'.description' | translate}}</div>
   </div>
 
+  <div class="row home-empty-state text-muted home-empty-state-container" ng-show="mode === 'normal' && recipeResults.length === 0 && !recipe.selected">
+    <span aria-hidden="true" class="glyphicon glyphicon-info-sign"></span>{{ 'empty_state.home' | translate }}
+  </div>
+
   <div class="row bundle-selection-container" ng-show="mode === 'tweak'">
     <div class="panel panel-default">
       <div class="panel-heading">
@@ -46,7 +50,7 @@
         <h3 class="panel-title selected-bundles-title">{{ 'selected_bundles_title' | translate }}</h3>
       </div>
       <div as-sortable="sortableSelectedBundles" class="panel-body selected-bundles-container" ng-model="bundles.selected">
-        <span class="selected-bundles-empty-state text-muted" ng-show="bundles.selected.length === 0 && sortableSelectedBundles.showEmptyState === true"><span aria-hidden="true" class="glyphicon glyphicon-info-sign"></span>{{ 'selected_bundles_empty_state' | translate }}</span>
+        <span class="selected-bundles-empty-state text-muted" ng-show="bundles.selected.length === 0 && sortableSelectedBundles.showEmptyState === true"><span aria-hidden="true" class="glyphicon glyphicon-info-sign"></span>{{ 'empty_state.selected_bundles' | translate }}</span>
         <span as-sortable-item class="label label-ingredient label-default" ng-repeat="(bundleIndex, bundleId) in bundles.selected track by bundleTracking(bundleIndex, bundleId)">
           <div as-sortable-item-handle>{{bundleId | translate}}</div>
         </span>
