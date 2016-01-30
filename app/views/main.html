@@ -24,7 +24,7 @@
   </div>
 
   <div class="row recipe-description-container">
-    <div class="recipe-description" ng-show="recipe.selected">{{recipe.selected.id+'.description' | translate}}</div>
+    <div class="recipe-description text-muted" ng-show="recipe.selected">{{recipe.selected.id+'.description' | translate}}</div>
   </div>
 
   <div class="row home-empty-state text-muted home-empty-state-container" ng-show="mode === 'normal' && recipeResults.length === 0 && !recipe.selected">
