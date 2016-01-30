@@ -10,7 +10,7 @@
             <span ng-bind-html="''+recipe.id+'.description' | translate | highlight: $select.search"></span>
             <br>
             <span translate>recipe_ingredient_bundles_label</span>:
-            <span ng-bind="recipe.ingredient_bundles.toString()"></span>
+            <span>{{ recipe.ingredient_bundles | translateArray }}</span>
           </small>
         </ui-select-choices>
       </ui-select>
