@@ -10,5 +10,9 @@
   "hybrid_animal": {
     "name": "Animal híbrido",
     "description": "Un animal híbrido es el resultado de cruzar animales de diferentes especies."
+  },
+  "cyborg": {
+    "name": "Cíborg",
+    "description": "Un cíborg es un ser formado por materia viva y partes mecánicas o electrónicas."
   }
 }

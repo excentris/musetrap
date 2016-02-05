@@ -7,4 +7,7 @@
 }, {
   "id": "hybrid_animal",
   "ingredient_bundles": ["animals", "animals"]
+}, {
+  "id": "cyborg",
+  "ingredient_bundles": ["animals", "mechanical_parts", "electronic_components"]
 }]
