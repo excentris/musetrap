@@ -14,5 +14,9 @@
   "cyborg": {
     "name": "Cíborg",
     "description": "Un cíborg es un ser formado por materia viva y partes mecánicas o electrónicas."
+  },
+  "exotic_locations": {
+    "name": "Ubicaciones exóticas",
+    "description": "Lugares fuera de lo común."
   }
 }

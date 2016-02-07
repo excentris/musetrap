@@ -10,4 +10,7 @@
 }, {
   "id": "cyborg",
   "ingredient_bundles": ["animals", "mechanical_parts", "electronic_components"]
+}, {
+  "id": "exotic_locations",
+  "ingredient_bundles": ["locations", "locations"]
 }]
