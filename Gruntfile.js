@@ -320,7 +320,7 @@ module.exports = function(grunt) {
     ngtemplates: {
       dist: {
         options: {
-          module: 'developmentApp',
+          module: 'musetrapApp',
           htmlmin: '<%= htmlmin.dist.options %>',
           usemin: 'scripts/scripts.js'
         },
@@ -417,6 +417,21 @@ module.exports = function(grunt) {
             'images/{,*/}*.{webp}',
             'styles/fonts/{,*/}*.*'
           ]
+        }, {
+          expand: true,
+          cwd: '<%= yeoman.app %>/data',
+          dest: '<%= yeoman.dist %>/data',
+          src: ['**']
+        }, {
+          expand: true,
+          cwd: '<%= yeoman.app %>/i18n',
+          dest: '<%= yeoman.dist %>/i18n',
+          src: ['**']
+        }, {
+          expand: true,
+          cwd: '<%= yeoman.app %>',
+          dest: '<%= yeoman.dist %>',
+          src: ['metadata.json']
         }, {
           expand: true,
           cwd: '.tmp/images',
