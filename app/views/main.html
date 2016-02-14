@@ -38,7 +38,7 @@
       </div>
       <div as-sortable="sortableAvailableBundles" class="panel-body available-bundles-container" ng-model="bundles.available">
         <span as-sortable-item class="label label-ingredient label-default" ng-repeat="(bundleIndex, bundleId) in bundles.available track by bundleTracking(bundleIndex, bundleId)">
-          <div as-sortable-item-handle>{{bundleId | translate}}</div>
+          <div as-sortable-item-handle class="noselect">{{bundleId | translate}}</div>
         </span>
       </div>
     </div>
@@ -52,7 +52,7 @@
       <div as-sortable="sortableSelectedBundles" class="panel-body selected-bundles-container" ng-model="bundles.selected">
         <span class="selected-bundles-empty-state text-muted" ng-show="bundles.selected.length === 0 && sortableSelectedBundles.showEmptyState === true"><span aria-hidden="true" class="glyphicon glyphicon-info-sign"></span>{{ 'empty_state.selected_bundles' | translate }}</span>
         <span as-sortable-item class="label label-ingredient label-default" ng-repeat="(bundleIndex, bundleId) in bundles.selected track by bundleTracking(bundleIndex, bundleId)">
-          <div as-sortable-item-handle>{{bundleId | translate}}</div>
+          <div as-sortable-item-handle class="noselect">{{bundleId | translate}}</div>
         </span>
       </div>
     </div>
