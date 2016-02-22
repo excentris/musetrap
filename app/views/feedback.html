@@ -1,0 +1,16 @@
+<h3>{{ 'feedback.title' | translate }}</h3>
+<p>{{ 'feedback.text' | translate }}</p>
+<form name="feedbackForm" ng-submit="processForm(feedbackForm.$valid)" novalidate>
+  <div class="form-group" ng-class="{ 'has-error': feedbackForm.name.$invalid && submitted }">
+    <input name="name" class="form-control" id="inputName" placeholder="{{'feedback.feedback_name_placeholder' | translate}}" type="text" ng-model="feedback.name" required>
+  </div>
+
+  <div class="form-group" ng-class="{ 'has-error': feedbackForm.email.$invalid && submitted }">
+    <input name="email" class="form-control" id="inputEmail" placeholder="{{'feedback.feedback_email_placeholder' | translate}}" type="email" ng-model="feedback.email" ng-model-options="{ updateOn: 'blur' }" required>
+  </div>
+
+  <div class="form-group" ng-class="{ 'has-error': feedbackForm.message.$invalid && submitted }">
+    <textarea name="message" class="form-control" rows="6" ng-model="feedback.message" placeholder="{{'feedback.feedback_message_placeholder' | translate}}" required></textarea>
+  </div>
+  <button class="btn btn-default" type="submit">{{ 'submit_button_text' | translate }}</button>
+</form>
