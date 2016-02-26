@@ -27,6 +27,8 @@ h2, h3, h3.selected-bundles-title, h3.available-bundles-title {
 h1 a.title {
   color: #666;
   text-decoration: none;
+  font-size: 46px;
+  font-family: 'Vollkorn', serif;
 }
 h1 a.title:hover {
   color: #999;
@@ -103,13 +105,11 @@ footer ul {
 .panel-body {
   min-height: 58px;
 }
-.selected-bundles-container,
-.home-empty-state-container {
+.selected-bundles-container, .home-empty-state-container {
   text-align: center;
   font-size: 19px;
 }
-.selected-bundles-empty-state .glyphicon,
-.home-empty-state .glyphicon {
+.selected-bundles-empty-state .glyphicon, .home-empty-state .glyphicon {
   font-size: 16px;
   margin-right: 10px;
 }
@@ -129,12 +129,15 @@ footer ul {
   top: auto;
   bottom: 100%;
 }
-
 .noselect {
-  -webkit-touch-callout: none; /* iOS Safari */
-  -webkit-user-select: none;   /* Chrome/Safari/Opera */
-  -moz-user-select: none;      /* Firefox */
-  -ms-user-select: none;       /* IE/Edge */
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Chrome/Safari/Opera */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* IE/Edge */
   user-select: none;
 }
 

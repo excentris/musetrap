@@ -18,7 +18,8 @@ module.exports = function(grunt) {
     ngtemplates: 'grunt-angular-templates',
     cdnify: 'grunt-google-cdn',
     buildcontrol: 'grunt-build-control',
-    coveralls: 'grunt-karma-coveralls'
+    coveralls: 'grunt-karma-coveralls',
+    favicons: 'grunt-favicons'
   })({
     customTasksDir: 'grunt/tasks'
   });
@@ -473,9 +474,22 @@ module.exports = function(grunt) {
         configFile: 'test/karma.conf.js',
         singleRun: true
       }
+    },
+
+    // Generated icons based on logo.png
+    favicons: {
+      options: {
+        trueColor: true,
+        appleTouchBackgroundColor: "#FFFFFF",
+        html: 'app/index.html',
+        HTMLPrefix: "app/images/icons/"
+      },
+      icons: {
+        src: 'app/images/logo.png',
+        dest: 'app/icons'
+      }
     }
   });
-
 
   grunt.registerTask('serve', 'Compile then start a connect web server', function(target) {
     if (target === 'dist') {
