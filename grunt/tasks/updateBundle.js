@@ -1,6 +1,7 @@
+var inquirer = require("inquirer");
+var _ = require('underscore');
+
 module.exports = function(grunt) {
-  var inquirer = require("inquirer");
-  var _ = require('underscore');
   // create/update ingredient_bundle translation files
   grunt.registerTask('updateBundle', 'Create/update ingredient_bundle', function(bundleName, newBundle) {
     if (!bundleName || !bundleName.length) {
