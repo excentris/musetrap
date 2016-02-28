@@ -12,7 +12,7 @@ angular.module('musetrapApp')
     function FeedbackCtrl($scope, $http, $translate, $httpParamSerializer, NotificationFactory) {
       $scope.feedback = {};
       $scope.submittedForm = false;
-      FeedbackCtrl.formUrl = "http://formspree.io/netrunner+sometest@gmail.com";
+      FeedbackCtrl.formUrl = "http://formspree.io/netrunner+musetrap@gmail.com";
 
       // process and submit the form
       $scope.processForm = function(isValid) {
