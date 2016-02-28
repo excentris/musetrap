@@ -15,6 +15,7 @@ angular.module('musetrapApp')
       $scope.bundles = {};
       $scope.bundles.available = [];
       $scope.bundles.selected = [];
+      $scope.bundles.removed = [];
       $scope.recipe = {};
 
       // drag and drop options for the available bundles panel in tweak mode
@@ -36,11 +37,7 @@ angular.module('musetrapApp')
         dragStart: function() {
           $scope.sortableSelectedBundles.showDropZone = true;
         },
-        dragEnd: function(event) {
-          var outside = event.dest.sortableScope.$id !== event.source.sortableScope.$id;
-          if (outside) {
-            event.source.sortableScope.removeItem(event.source.index);
-          }
+        dragEnd: function() {
           $scope.sortableSelectedBundles.showDropZone = false;
         }
       };

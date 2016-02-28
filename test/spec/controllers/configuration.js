@@ -126,22 +126,7 @@ describe('Controller: ConfigurationCtrl', function() {
     expect($scope.sortableSelectedBundles.showDropZone).toEqual(false);
     $scope.sortableSelectedBundles.dragStart();
     expect($scope.sortableSelectedBundles.showDropZone).toEqual(true);
-    // dragEnd event mocking the action of dragging a bundle to a different
-    // sortable, which in our case can only be the dropzone.
-    var dragEndEventMockOutside = {
-      dest: {
-        sortableScope: {
-          $id: 0
-        }
-      },
-      source: {
-        sortableScope: {
-          $id: 1,
-          removeItem: function() {}
-        }
-      }
-    };
-    $scope.sortableSelectedBundles.dragEnd(dragEndEventMockOutside);
+    $scope.sortableSelectedBundles.dragEnd();
     expect($scope.sortableSelectedBundles.showDropZone).toEqual(false);
   });
 });
