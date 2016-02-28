@@ -492,11 +492,11 @@ module.exports = function(grunt) {
         trueColor: true,
         appleTouchBackgroundColor: "#FFFFFF",
         html: 'app/index.html',
-        HTMLPrefix: "app/images/icons/"
+        HTMLPrefix: "app/icons/"
       },
       icons: {
         src: 'app/images/logo.png',
-        dest: 'app/images/icons'
+        dest: 'app/icons'
       }
     }
   });
