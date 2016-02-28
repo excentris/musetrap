@@ -430,6 +430,11 @@ module.exports = function(grunt) {
           src: ['**']
         }, {
           expand: true,
+          cwd: '<%= yeoman.app %>/images/icons',
+          dest: '<%= yeoman.dist %>/images/icons',
+          src: ['**']
+        }, {
+          expand: true,
           cwd: '<%= yeoman.app %>',
           dest: '<%= yeoman.dist %>',
           src: ['metadata.json']
