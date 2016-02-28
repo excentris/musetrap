@@ -430,8 +430,8 @@ module.exports = function(grunt) {
           src: ['**']
         }, {
           expand: true,
-          cwd: '<%= yeoman.app %>/images/icons',
-          dest: '<%= yeoman.dist %>/images/icons',
+          cwd: '<%= yeoman.app %>/icons',
+          dest: '<%= yeoman.dist %>/icons',
           src: ['**']
         }, {
           expand: true,
