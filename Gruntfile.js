@@ -496,7 +496,7 @@ module.exports = function(grunt) {
       },
       icons: {
         src: 'app/images/logo.png',
-        dest: 'app/icons'
+        dest: 'app/images/icons'
       }
     }
   });
