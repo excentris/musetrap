@@ -1,0 +1,22 @@
+{
+  "humanoid_creature": {
+    "name": "Criatura humanoide",
+    "description": "Una criatura humanoide es un ser que tiene aspecto humano."
+  },
+  "animal_warrior": {
+    "name": "Guerrero animal",
+    "description": "Un guerrero con rasgos animales"
+  },
+  "hybrid_animal": {
+    "name": "Animal híbrido",
+    "description": "Un animal híbrido es el resultado de cruzar animales de diferentes especies."
+  },
+  "cyborg": {
+    "name": "Cíborg",
+    "description": "Un cíborg es un ser formado por materia viva y partes mecánicas o electrónicas."
+  },
+  "exotic_locations": {
+    "name": "Ubicaciones exóticas",
+    "description": "Lugares fuera de lo común."
+  }
+}

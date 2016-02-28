@@ -1,0 +1,22 @@
+{
+  "humanoid_creature": {
+    "name": "Humanoid creature",
+    "description": "A humanoid is something that has an appearance resembling a human being."
+  },
+  "animal_warrior": {
+    "name": "Animal warrior",
+    "description": "A warrior with animal traits."
+  },
+  "hybrid_animal": {
+    "name": "Hybrid animal",
+    "description": "A hybrid animal is one with parentage of two separate species."
+  },
+  "cyborg": {
+    "name": "Cyborg",
+    "description": "A cyborg is being with both biological and artificial (e.g. mechanical or electronic) parts."
+  },
+  "exotic_locations": {
+    "name": "Exotic locations",
+    "description": "Out of the ordinary locations."
+  }
+}

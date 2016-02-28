@@ -1,0 +1,39 @@
+{
+  "button_lang_es": "Spanish",
+  "button_lang_en": "English",
+  "button_tweak": "Tweaks",
+  "lang_selector_placeholder": "Select laguage",
+  "tagline": "Keep the muses by your side",
+  "recipe_selector_placeholder": "Select a recipe...",
+  "recipe_description_label": "Description",
+  "recipe_ingredient_bundles_label": "Ingredients",
+  "available_bundles_title": "Available ingredient bundles",
+  "selected_bundles_title": "Selected ingredient bundles",
+  "recipe_results_title": "Results",
+  "clear_selected_bundles_button_title": "Clear selected bundles",
+  "inspire_button_text": "Wake the Muses",
+  "submit_button_text": "Submit",
+  "nav_home": "Home",
+  "nav_about": "About",
+  "nav_feedback": "Feedback",
+  "errors": {
+    "get_available_recipes": "Could not get available recipes",
+    "get_available_bundles": "Could not get available ingredient bundles",
+    "get_available_languages": "Could not get available languages",
+    "create_recipe": "Error processing recipe"
+  },
+  "empty_state": {
+    "selected_bundles": "Drag available bundles here to create a recipe",
+    "home": "To get started either select a premade recipe or click on Tweaks to unleash the power of the Muses"
+  },
+  "feedback": {
+    "title": "Feedback",
+    "text": "You can use the form below to send your comments and suggestions.",
+    "feedback_name_placeholder": "Name",
+    "feedback_email_placeholder": "Email",
+    "feedback_message_placeholder": "Message...",
+    "submit_form_success": "Your message has been sent. Thanks!",
+    "submit_form_error": "Error while sending your message",
+    "submit_form_invalid": "All the form fields are mandatory"
+  }
+}

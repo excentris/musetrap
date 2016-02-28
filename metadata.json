@@ -1,0 +1,21 @@
+{
+	"availableBundles": [
+		"animal_traits",
+		"animals",
+		"colors_basic",
+		"creatures",
+		"electronic_components",
+		"emotions",
+		"locations",
+		"mechanical_parts",
+		"physical_actions",
+		"plants",
+		"steampunk",
+		"transportation",
+		"weapons"
+	],
+	"availableLanguages": [
+		"en",
+		"es"
+	]
+}

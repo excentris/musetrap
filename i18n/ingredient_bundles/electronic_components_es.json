@@ -1,0 +1,12 @@
+{
+	"antenna": "Antena",
+	"cable": "Cable",
+	"power_supply": "Fuente de alimentación",
+	"led": "Led",
+	"display": "Pantalla",
+	"socket": "Enchufe",
+	"switch": "Interruptor",
+	"keypad": "Teclado",
+	"lamp": "Lámpara",
+	"rotary_dial": "Dial giratorio"
+}

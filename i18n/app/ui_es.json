@@ -1,0 +1,39 @@
+{
+  "button_lang_es": "Español",
+  "button_lang_en": "Inglés",
+  "button_tweak": "Ajustes",
+  "lang_selector_placeholder": "Selecciona idioma",
+  "tagline": "Las musas siempre a tu lado",
+  "recipe_selector_placeholder": "Selecciona una receta...",
+  "recipe_description_label": "Descripción",
+  "recipe_ingredient_bundles_label": "Ingredientes",
+  "available_bundles_title": "Conjuntos de ingredients disponibles",
+  "selected_bundles_title": "Conjuntos de ingredients seleccionados",
+  "recipe_results_title": "Resultado",
+  "clear_selected_bundles_button_title": "Elimina los conjuntos seleccionados",
+  "inspire_button_text": "Despierta las Musas",
+  "submit_button_text": "Enviar",
+  "nav_home": "Inicio",
+  "nav_about": "Acerca de Musetrap",
+  "nav_feedback": "Feedback",
+  "errors": {
+    "get_available_recipes": "Error al obtener las recetas disponibles",
+    "get_available_bundles": "Error al obtener los conjuntos de ingredientes disponibles",
+    "get_available_languages": "Error al obtener idiomas disponibles",
+    "create_recipe": "Error al procesar la receta"
+  },
+  "empty_state": {
+    "selected_bundles": "Arrastra conjuntos disponibles aquí para crear una receta",
+    "home": "Para empezar selecciona una de las recetas disponibles o haz click en Ajustes para desatar el poder de las Musas"
+  },
+  "feedback": {
+    "title": "Feedback",
+    "text": "Puedes utilizar el siguiente formulario para enviar tus comentarios y sugerencias.",
+    "feedback_name_placeholder": "Nombre",
+    "feedback_email_placeholder": "Email",
+    "feedback_message_placeholder": "Mensaje...",
+    "submit_form_success": "Tu mensaje ha sido enviado. ¡Muchas gracias!",
+    "submit_form_error": "Error al enviar tu mensaje",
+    "submit_form_invalid": "Todos los campos son obligatorios"
+  }
+}
