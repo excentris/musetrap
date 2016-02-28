@@ -166,6 +166,13 @@ footer ul {
   .language-select-container {
     margin-top: 10px;
   }
+  footer {
+    height: 120px;
+  }
+  body {
+    /* Margin bottom by footer height */
+    margin-bottom: 120px;
+  }
 }
 @media screen and (max-width: 319px) {
   .main-container {
