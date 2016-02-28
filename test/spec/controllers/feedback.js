@@ -28,14 +28,14 @@ describe('Controller: FeedbackCtrl', function() {
   });
 
   it('should display a success message when submitting a valid form', function() {
-    $httpBackend.expectPOST("http://formspree.io/netrunner+sometest@gmail.com").respond({});
+    $httpBackend.expectPOST("http://formspree.io/netrunner+musetrap@gmail.com").respond({});
     $scope.processForm(true);
     $httpBackend.flush();
     expect(NotificationFactory.success).toHaveBeenCalled();
   });
 
   it('should display an error when submitting the form fails', function() {
-    $httpBackend.when('POST', "http://formspree.io/netrunner+sometest@gmail.com").respond(401, '');
+    $httpBackend.when('POST', "http://formspree.io/netrunner+musetrap@gmail.com").respond(401, '');
     $scope.processForm(true);
     $httpBackend.flush();
     expect(NotificationFactory.error).toHaveBeenCalled();
