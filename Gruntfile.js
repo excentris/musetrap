@@ -492,7 +492,7 @@ module.exports = function(grunt) {
         trueColor: true,
         appleTouchBackgroundColor: "#FFFFFF",
         html: 'app/index.html',
-        HTMLPrefix: "app/icons/"
+        HTMLPrefix: "icons/"
       },
       icons: {
         src: 'app/images/logo.png',
