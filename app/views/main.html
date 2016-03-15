@@ -1,7 +1,7 @@
 <div class="controls-container" ng-controller="ConfigurationCtrl">
   <div class="row">
     <div class="input-group recipe-select-tweak">
-      <ui-select class="recipe-select" ng-disabled="disabled" ng-model="recipe.selected" on-select="changeSelectedRecipe($item)" theme="bootstrap">
+      <ui-select class="recipe-select" ng-disabled="disabled" ng-model="recipe.selected" on-select="changeSelectedRecipe($item)" theme="bootstrap" skip-focusser="true">
         <ui-select-match allow-clear="true" placeholder="{{'recipe_selector_placeholder' | translate}}">{{$select.selected.id+'.name' | translate}}</ui-select-match>
         <ui-select-choices repeat="recipe in availableRecipes | recipeSearchFilter: $select.search">
           <div ng-bind-html="recipe.id+'.name' | translate | highlight: $select.search"></div>
