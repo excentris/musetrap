@@ -99,7 +99,9 @@ footer ul {
   cursor: pointer;
   color: #666;
 }
-
+.feedbackFormSubmit {
+  margin-bottom: 10px;
+}
 /* bundle styles */
 
 .panel-body {

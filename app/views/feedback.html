@@ -12,5 +12,5 @@
   <div class="form-group" ng-class="{ 'has-error': feedbackForm.message.$invalid && submitted }">
     <textarea name="message" class="form-control" rows="6" ng-model="feedback.message" placeholder="{{'feedback.feedback_message_placeholder' | translate}}" required></textarea>
   </div>
-  <button class="btn btn-default" type="submit">{{ 'submit_button_text' | translate }}</button>
+  <button class="btn btn-default feedbackFormSubmit" type="submit">{{ 'submit_button_text' | translate }}</button>
 </form>
