@@ -66,6 +66,6 @@ module.exports = function(grunt) {
       dump.i18n[bundleNamesLang].bundles = grunt.file.readJSON(bundleNamesTranslations);;
     });
 
-    grunt.file.write(grunt.config.get('yeoman.app') + '/dump.json', JSON.stringify(dump, null, '\t'));
+    grunt.file.write(grunt.config.get('yeoman.app') + '/data.json', JSON.stringify(dump, null, '\t'));
   });
 }
