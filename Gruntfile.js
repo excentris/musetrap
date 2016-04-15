@@ -19,7 +19,8 @@ module.exports = function(grunt) {
     cdnify: 'grunt-google-cdn',
     buildcontrol: 'grunt-build-control',
     coveralls: 'grunt-karma-coveralls',
-    favicons: 'grunt-favicons'
+    favicons: 'grunt-favicons',
+    protractor: 'grunt-protractor-runner'
   })({
     customTasksDir: 'grunt/tasks'
   });
@@ -102,6 +103,22 @@ module.exports = function(grunt) {
       test: {
         options: {
           port: 9001,
+          middleware: function(connect) {
+            return [
+              connect.static('.tmp'),
+              connect.static('test'),
+              connect().use(
+                '/bower_components',
+                connect.static('./bower_components')
+              ),
+              connect.static(appConfig.app)
+            ];
+          }
+        }
+      },
+      e2e: {
+        options: {
+          port: 9002,
           middleware: function(connect) {
             return [
               connect.static('.tmp'),
@@ -486,6 +503,29 @@ module.exports = function(grunt) {
       }
     },
 
+    // e2e tests
+    protractor: {
+      options: {
+        configFile: "test/protractor.conf.js",
+        noColor: false,
+        // Set to true if you would like to use the Protractor command line debugging tool
+        // debug: true,
+        // Additional arguments that are passed to the webdriver command
+        args: {}
+      },
+      e2e: {
+        options: {
+          // Stops Grunt process if a test fails
+          keepAlive: false
+        }
+      },
+      continuous: {
+        options: {
+          keepAlive: true
+        }
+      }
+    },
+
     // Generated icons based on logo.png
     favicons: {
       options: {
@@ -515,6 +555,15 @@ module.exports = function(grunt) {
       'watch'
     ]);
   });
+
+  grunt.registerTask('e2e-test', [
+    'clean:server',
+    'wiredep',
+    'concurrent:test',
+    'postcss',
+    'connect:e2e',
+    'protractor:e2e'
+  ]);
 
   grunt.registerTask('server', 'DEPRECATED TASK. Use the "serve" task instead', function(target) {
     grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
