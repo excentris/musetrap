@@ -19,7 +19,7 @@
           <div class="language-select-container navbar-right" role="group">
             <ui-select class="language-select" ng-model="selectedLanguage" theme="bootstrap" on-select="changeLanguage($item)" skip-focusser="true">
               <ui-select-match placeholder="{{'lang_selector_placeholder' | translate}}">{{ 'button_lang_'+$select.selected | translate }}</ui-select-match>
-              <ui-select-choices repeat="language in availableLanguages | filter: $select.search" position="up">
+              <ui-select-choices class="language-choices" repeat="language in availableLanguages | filter: $select.search" position="up">
                 <span ng-bind-html="'button_lang_'+language | translate | highlight: $select.search"></span>
               </ui-select-choices>
             </ui-select>
