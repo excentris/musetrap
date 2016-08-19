@@ -175,6 +175,13 @@ footer ul {
     /* Margin bottom by footer height */
     margin-bottom: 120px;
   }
+  header {
+    margin: 20px 0;
+  }
+  .tagline {
+    display: block;
+    font-size: 50%;
+  }
 }
 @media screen and (max-width: 319px) {
   .main-container {
@@ -184,5 +191,9 @@ footer ul {
   /* footer on smaller devices */
   .language-select-container {
     margin-top: 10px;
+  }
+  .tagline {
+    display: block;
+    font-size: 40%;
   }
 }
