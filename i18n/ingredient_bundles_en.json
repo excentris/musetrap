@@ -11,5 +11,7 @@
 	"steampunk": "Steampunk",
 	"mechanical_parts": "Mechanical parts",
 	"electronic_components": "Electronic components",
-	"locations": "Locations"
+	"locations": "Locations",
+	"materials": "Materials",
+	"elementals": "Elementals"
 }

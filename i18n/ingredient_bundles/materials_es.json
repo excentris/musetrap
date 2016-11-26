@@ -1,0 +1,21 @@
+{
+	"water": "Agua",
+	"ice": "Hielo",
+	"wood": "Madera",
+	"iron": "Hierro",
+	"steel": "Acero",
+	"copper": "Cobre",
+	"gold": "Oro",
+	"sand": "Arena",
+	"soil": "Tierra",
+	"glass": "Vidrio",
+	"lava": "Lava",
+	"stone": "Piedra",
+	"diamond": "Diamante",
+	"paper": "Papel",
+	"linen": "Lino",
+	"titanium": "Titanio",
+	"wool": "Lana",
+	"leather": "Cuero",
+	"carbon": "Carbón"
+}

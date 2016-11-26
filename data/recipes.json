@@ -1,16 +1,38 @@
-[{
-  "id": "humanoid_creature",
-  "ingredient_bundles": ["creatures", "weapons"]
-}, {
-  "id": "animal_warrior",
-  "ingredient_bundles": ["animals", "weapons"]
-}, {
-  "id": "hybrid_animal",
-  "ingredient_bundles": ["animals", "animals"]
-}, {
-  "id": "cyborg",
-  "ingredient_bundles": ["animals", "mechanical_parts", "electronic_components"]
-}, {
-  "id": "exotic_locations",
-  "ingredient_bundles": ["locations", "locations"]
-}]
+[
+  {
+    "id": "humanoid_creature",
+    "ingredient_bundles": [
+      "creatures",
+      "weapons"
+    ]
+  },
+  {
+    "id": "animal_warrior",
+    "ingredient_bundles": [
+      "animals",
+      "weapons"
+    ]
+  },
+  {
+    "id": "hybrid_animal",
+    "ingredient_bundles": [
+      "animals",
+      "animals"
+    ]
+  },
+  {
+    "id": "cyborg",
+    "ingredient_bundles": [
+      "animals",
+      "mechanical_parts",
+      "electronic_components"
+    ]
+  },
+  {
+    "id": "exotic_locations",
+    "ingredient_bundles": [
+      "locations",
+      "locations"
+    ]
+  }
+]
