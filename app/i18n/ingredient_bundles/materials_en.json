@@ -1,0 +1,21 @@
+{
+	"water": "Water",
+	"ice": "Ice",
+	"wood": "Wood",
+	"iron": "Iron",
+	"steel": "Steel",
+	"copper": "Copper",
+	"gold": "Gold",
+	"sand": "Sand",
+	"soil": "Soil",
+	"glass": "Glass",
+	"lava": "Lava",
+	"stone": "Stone",
+	"diamond": "Diamond",
+	"paper": "Paper",
+	"linen": "Linen",
+	"titanium": "Titanium",
+	"wool": "Wool",
+	"leather": "Leather",
+	"carbon": "Carbon"
+}
